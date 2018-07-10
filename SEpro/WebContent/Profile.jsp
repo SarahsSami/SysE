@@ -10,10 +10,41 @@
 <%@page import="java.sql.Connection"%>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Profile</title>
+
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600,400italic,700' rel='stylesheet' type='text/css'>
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="css/icomoon.css">
+	<!-- Simple Line Icons -->
+	<link rel="stylesheet" href="css/simple-line-icons.css">
+	<!-- Owl Carousel -->
+	<link rel="stylesheet" href="css/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+
+	<!-- 
+	Default Theme Style 
+	You can change the style.css (default color purple) to one of these styles
+	
+	1. pink.css
+	2. blue.css
+	3. turquoise.css
+	4. orange.css
+	5. lightblue.css
+	6. brown.css
+	7. green.css
+
+	-->
+	<link rel="stylesheet" href="css/lightblue.css">
+
+	<script src="js/modernizr-2.6.2.min.js"></script>
+
 </head>
 <body>
-<h1>hey</h1>
 
    <%
     //to display the ideas from database to ideas bank 
@@ -44,12 +75,12 @@ resultSet.next();
 	<div id="Profile" data-section="Profile"  >		
 	<!-- 	<div class="container"> -->
 			<div class="row">
-				<div class="col-md-12 section-heading text-center">
+		<!--  		<div class="col-md-12 section-heading text-center">
 					<h2 class="to-animate"> Profile</h2>
                                   		<div class="col-md-8 col-md-offset-2 subtext to-animate">
 						</div>
 
-				</div>
+				</div>-->
                                                                     <div class="col-md-12">
   <div id="fh5co-press" data-section="Services">
 		<div class="container">
@@ -60,8 +91,7 @@ resultSet.next();
 					<h2 class="single-animate animate-press-1">Services</h2>
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2 subtext single-animate animate-press-2">
-							<h4>What we've done for people.</h4>
-							<h3>--Business skills--</h3>
+
 						</div>
 					</div>
 				</div>

@@ -18,11 +18,11 @@
 
 
 
-<a  onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><span style="font-weight:bold; cursor:pointer;">Sign In</span></a>
-
-
  <div class="containerLogin">
 <div class="Login">
+<div style="text-align:center; margin-top:100px">
+<button  onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><span style="font-size:17px; font-weight:bold; cursor:pointer; ">Sign In</span></button>
+</div>
 <div id="id01" class="modal">
   
   <form class="modal-content animate" action="loginCheck.jsp" method="post">
