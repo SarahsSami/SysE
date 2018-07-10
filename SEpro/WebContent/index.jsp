@@ -46,7 +46,7 @@
       </label>
 
     <div class="containerLogin" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">hi</button>
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Ghaida</button>
       <span class="psw">Forgot <a href="#">password?</a></span>
     </div>
   </form>
