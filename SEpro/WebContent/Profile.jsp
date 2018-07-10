@@ -42,7 +42,7 @@
 	<link rel="stylesheet" href="css/lightblue.css">
 
 	<script src="js/modernizr-2.6.2.min.js"></script>
-  
+   
 </head>
 <body>
 
@@ -133,7 +133,7 @@ resultSet.next();
 						<div class="fh5co-press-text">
 							<h3 class="h2 fh5co-press-title">SE<span class="fh5co-border"></span></h3>
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis eius quos similique suscipit dolorem cumque vitae qui molestias illo accusantium...</p>
-							<p><a href="indexPM.jsp" class="btn btn-primary btn-sm">Open</a></p>
+							<p><a href="indexSE.jsp" class="btn btn-primary btn-sm">Open</a></p>
 						</div>
 					</div>
 					<!-- Press Item -->
