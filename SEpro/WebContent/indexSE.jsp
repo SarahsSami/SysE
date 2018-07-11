@@ -179,7 +179,7 @@ resultSet.next();
                     <br/>
                     <img src="images/icon-7.png" style="width:30%; height:30% ">
           
-      </div></div></div>
+      </div></div></div> 
     </div>
   </div>
   <div class="column1">

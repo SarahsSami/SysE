@@ -158,7 +158,7 @@ resultSet.next();
         institution that supports and enhances scientific applied research. It coordinates the activities of government
         institutions and scientific research centers in accordance with the requirements of the development of the
         Kingdom.</p>
-        </div> 
+        </div>  
         
     <div class="bb" style=" margin-left: 240px;">
   <button  class="EditInfoStyle" style="text-align:center; width:auto">Phase 1 »</button>
