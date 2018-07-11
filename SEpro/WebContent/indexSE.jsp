@@ -50,6 +50,7 @@
 	<link rel="stylesheet" href="css/bootstrap.css">
 	
 	<link rel="stylesheet"  href="css/Style-2018.css" type="text/css" >
+		  	<link rel="stylesheet"  href="css/LoginStyle.css" type="text/css" >
 	
 
 	<!-- 
@@ -191,16 +192,72 @@ resultSet.next();
   <div class="column1">
     <div class="content1">
         <img src="images/6.png" style="width:60%; height:60% ">
-      <h3>MICROSOFT</h3>
+      <h3>MICROSOFT</h3> 
+      
+      <button  onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><span style="font-size:17px; font-weight:bold; cursor:pointer; ">Tutorial</span></button>
+      
+      <div class="Login">
+      
+      <div id="id01" class="modal">
+      <div class="modal-content animate">
+          <img src="images/2.png" style="width:60%; height:60% "></a>
+                <h1>Kacst Project</h1>
+          <p style="padding:10px"><b>Description:</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor velit sit amet erat mattis ptesque. Integer ac tempus turpis. Mauris ultrices enim auctor lorem rutrum tempor. </p>
+          
+      </div></div>
+      </div>
+      
+      
     </div>
   </div>
   </div>
   
  </div>
  
+<div style="text-align:center; margin-top:100px">
+<button  onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><span style="font-size:17px; font-weight:bold; cursor:pointer; ">Sign In</span></button>
+</div>
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate" action="loginCheck.jsp" method="post">
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+    </div>
 
 
 
+      <h1>Sign In</h1>
+    
+      <!--<label for="uname"><b>Username</b></label> -->
+      <input type="text" placeholder="Enter Username" name="Name" required>
+
+      <!--<label for="psw"><b>Password</b></label>-->
+      <input type="password" placeholder="Enter Password" name="Password" required>
+        
+      <button type="submit" style="font-size:17px;">Sign In</button>
+      <label style="margin-left:13px; margin-bottom:6px;">
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+
+    <div class="containerLogin" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+  </div>
+  </div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
 
 
 </div></div></div></div>
