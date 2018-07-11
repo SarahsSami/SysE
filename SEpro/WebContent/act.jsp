@@ -68,6 +68,8 @@
 	<link rel="stylesheet" href="css/lightblue.css">
 
 	<script src="js/modernizr-2.6.2.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	
 
 </head>
 
@@ -157,8 +159,24 @@ resultSet.next();
 <p>King Abdulaziz City for Science and Technology (KACST) is a scientific government institution that supports and enhances scientific applied research. It coordinates the activities of government institutions and scientific research centers in accordance with the requirements of the development of the Kingdom.</p>
 </div>
 <div class="bb" style=" margin-left: 400px;">
-  <button id="button4">Upload</button>
-  <button id="button4">Download</button>
+  <input type="button" id="upload" value="Upload"/>
+ <input type="button" id="download" value="Download"/>
+<input type="button" id="approve" value="Approve"  />
+ 
+<script type="text/javascript">
+
+$(document).ready(function(){
+	
+	$("#approve").click(function(){
+		$("#download").prop("disabled",true);
+		$("#download").css("cursor","not-allowed")
+		$("#upload").prop("disabled",true);
+		$("#upload").css("cursor","not-allowed")
+		$("#approve").prop("disabled",true);
+		$("#approve").css("cursor","not-allowed")
+	})
+})
+</script>  
 </div> 
 
 </div>
