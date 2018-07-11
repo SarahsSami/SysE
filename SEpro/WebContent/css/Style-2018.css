@@ -106,4 +106,19 @@ asa{background: #38569f;}
     height: 100%;
 }
 
+    #box {
+    
+    width: 680px;
+    border: 3px solid white;
+    padding: 25px;
+    margin: 25px;
+    margin-left: 90px; 
+   
+}
 
+.bb{
+    cursor: pointer; /* Pointer/hand icon */
+    float: left; /* Float the buttons side by side */
+    margin: 5%;
+   
+}
