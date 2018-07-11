@@ -50,6 +50,7 @@
 	<link rel="stylesheet" href="css/bootstrap.css">
 	
 	<link rel="stylesheet"  href="css/Style-2018.css" type="text/css" >
+		<link rel="stylesheet"  href="css/LoginStyle.css" type="text/css" >
 	
 
 	<!-- 
@@ -132,39 +133,36 @@ resultSet.next();
  <!-- page content-->
  	<div id="fh5co-press" >
  		 <div class="container"  >
- 		 
 			<div class="row">
 			
 							<div class="col-md-12 section-heading text-center">  
+			<div class="login">
 			
 <!--view projects example -->
-<div class="main1" style="    text-align:center; margin-left:200px; margin-top:70px">
-
+<div class="main1" style="    text-align:center; margin-left:100px; margin-top:70px">
 
 <div id="box">
 
-  <div id="projlogo">
-    <img src="images/2.png"/>   
+  <div >
+    <img style="padding-bottom:0px; width:250px" src="images/1.png"/>   
     </div>
 
-<div id="rightcolumnseller">
 
-<h2>King Abdulaziz City for Science and Technology</h2>
+<h2 style="font-size:30px; ">King Abdulaziz City for Science and Technology</h2>
 
 <br/>
- <p>King Abdulaziz City for Science and Technology (KACST) is a scientific government 
+ <p style="padding:20px">King Abdulaziz City for Science and Technology (KACST) is a scientific government 
         institution that supports and enhances scientific applied research. It coordinates the activities of government
         institutions and scientific research centers in accordance with the requirements of the development of the
         Kingdom.</p>
-<br/><br/>
-<a href="Phases.jsp" class="button" style="margin-left:500px;">View Phases</a>
- </div>
+<form action="Phases.jsp" class="Login">
+<button class="EditInfoStyle" style="text-align:center; width:auto">View Phases</button>
+</form>
 
+</div>
+</div>
+</div>
 
-</div>
-</div>
-</div>
- 
 
 
 </div></div></div></div>

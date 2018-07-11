@@ -157,15 +157,16 @@ resultSet.next();
 <div class="row1"style="">
   <div class="column1">
     <div class="content1">
-        <img src="images/1.png" style="width:60%; height:60%">
-      <h3>NEOM</h3>
+        <img src="images/1.png" style="width:70%; height:70%">
+      <h3 style="padding-top:0px">NEOM</h3>
                  
-      <button  onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><span style="font-size:17px; font-weight:bold; cursor:pointer; ">Tutorial</span></button>
-      
+      <div class="button-tu">
+                  <button  onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><span style="font-size:13px; cursor:pointer; text-align:center">Tutorial</span></button>
+      </div>      
       <div class="Login">
       <div id="id01" class="modal">
       <div class="modal-content animate">
-          <img src="images/1.png" style="width:60%; height:60% ">
+          <img src="images/1.png" style="width:auto">
                 <h1>NEOM</h1>
           <p style="padding:10px"><b>Description:</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor velit sit amet erat mattis ptesque. Integer ac tempus turpis. Mauris ultrices enim auctor lorem rutrum tempor. </p>
                     <img src="images/icon-1.png" style="width:30%; height:30% ">                   
@@ -183,18 +184,20 @@ resultSet.next();
   </div>
   <div class="column1">
     <div class="content1">
-      <a href="kacst.jsp">
-          <img src="images/2.png" style="width:60%; height:60% "></a>
-      <h3>KACST</h3>
+      <a href="Project.jsp">
+          <img src="images/1.png" style="width:70%; height:70% "></a>
+      <h3 style="padding-top:0px">KACST</h3>
            
-      <button  onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><span style="font-size:17px; font-weight:bold; cursor:pointer; ">Tutorial</span></button>
-      
+      <div class="button-tu">
+                  <button  onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><span style="font-size:13px; cursor:pointer; text-align:center">Tutorial</span></button>
+      </div>      
       <div class="Login">
       <div id="id01" class="modal">
       <div class="modal-content animate">
           <img src="images/2.png" style="width:60%; height:60% ">
                 <h1>KACST</h1>
           <p style="padding:10px"><b>Description:</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor velit sit amet erat mattis ptesque. Integer ac tempus turpis. Mauris ultrices enim auctor lorem rutrum tempor. </p>
+                    <h4><b>Project Phases:</b> </h4>
                     <img src="images/icon-1.png" style="width:30%; height:30% ">                   
                     <img src="images/icon-2.png" style="width:30%; height:30% ">
                     <img src="images/icon-3.png" style="width:30%; height:30% ">
@@ -210,11 +213,12 @@ resultSet.next();
   </div>
   <div class="column1">
     <div class="content1">
-        <img src="images/3.png" style="width:60%; height:50%">
-      <h3>NASA</h3>
+        <img src="images/3.png" style="width:70%; height:70%">
+      <h3 style="padding-top:0px">NASA</h3>
       
-      <button  onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><span style="font-size:17px; font-weight:bold; cursor:pointer; ">Tutorial</span></button>
-      
+      <div class="button-tu">
+                  <button  onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><span style="font-size:13px; cursor:pointer; text-align:center">Tutorial</span></button>
+      </div>      
       <div class="Login">
       <div id="id01" class="modal">
       <div class="modal-content animate">
@@ -242,8 +246,10 @@ resultSet.next();
         <img src="images/4.png" style="width:60%; height:60% ">
       <h3>GOOGLE</h3>
       
-      <button  onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><span style="font-size:17px; font-weight:bold; cursor:pointer; ">Tutorial</span></button>
-      
+  
+      <div class="button-tu">
+                  <button  onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><span style="font-size:13px; cursor:pointer; text-align:center">Tutorial</span></button>
+      </div>
       <div class="Login">
       <div id="id01" class="modal">
       <div class="modal-content animate">
@@ -266,10 +272,12 @@ resultSet.next();
   <div class="column1">
     <div class="content1">
         <img src="images/5.png" style="width:60%; height:60%">
-      <h3>APPLE inc.</h3>
+      <h3 style="padding-top:0px">APPLE inc.</h3>
       
-            <button  onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><span style="font-size:17px; font-weight:bold; cursor:pointer; ">Tutorial</span></button>
       
+      <div class="button-tu">
+                  <button  onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><span style="font-size:13px; cursor:pointer; text-align:center">Tutorial</span></button>
+      </div>
       <div class="Login">
       <div id="id01" class="modal">
       <div class="modal-content animate">
@@ -292,10 +300,12 @@ resultSet.next();
   <div class="column1">
     <div class="content1">
         <img src="images/6.png" style="width:60%; height:60% ">
-      <h3>MICROSOFT</h3> 
+      <h3 style="padding-top:0px">MICROSOFT</h3> 
       
-      <button  onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><span style="font-size:17px; font-weight:bold; cursor:pointer; ">Tutorial</span></button>
       
+      <div class="button-tu">
+                  <button  onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><span style="font-size:13px; cursor:pointer; text-align:center">Tutorial</span></button>
+      </div>      
       <div class="Login">
       <div id="id01" class="modal">
       <div class="modal-content animate">

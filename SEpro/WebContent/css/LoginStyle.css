@@ -60,6 +60,25 @@ margin: 40 0 20px;
     opacity: 0.8;
 }
 
+.containerLogin {
+    padding: 0 16px 0 0;
+    
+}
+
+.button-tu button{
+    border:  1px solid #ccc;
+    background-color:none;
+	color: #515151;
+    text-align:center
+}
+
+.button-tu button:hover {
+    opacity: 0.8;
+    color:#ffffff;
+    background-color: #515151;
+    
+}
+
 /* Extra styles for the cancel button */
 .Login .cancelbtn {
     width: auto;
@@ -69,13 +88,12 @@ margin: 40 0 20px;
     
 }
 
-.containerLogin {
-    padding: 0 16px 0 0;
-}
+
 
 span.psw {
     float: right;
     padding-top: 16px;
+    
     
 }
 

@@ -50,6 +50,7 @@
 	<link rel="stylesheet" href="css/bootstrap.css">
 	
 	<link rel="stylesheet"  href="css/Style-2018.css" type="text/css" >
+			<link rel="stylesheet"  href="css/LoginStyle.css" type="text/css" >
 	
 
 	<!-- 
@@ -145,24 +146,26 @@ resultSet.next();
 							<div class="col-md-12 section-heading text-center">  
 			
 <!--view projects example -->
-<div class="main1" style="    text-align:center; margin-left:200px; margin-top:70px">
-
-
+<div class="main1" style="    text-align:center; margin-left:100px; margin-top:70px">
 <div id="box">
-<div id="projlogo">
-    <img src="images/2.png"/>   
-</div>
-<h2>King Abdulaziz City for Science and Technology</h2>
 
-<br/>
-<div style="width: 600px; color: wheat;">King Abdulaziz City for Science and Technology (KACST) is a scientific government institution that supports and enhances scientific applied research. It coordinates the activities of government institutions and scientific research centers in accordance with the requirements of the development of the Kingdom.</div>
- </div> 
-    <div class="bb" style=" margin-left: 230px;">
-  <button id="button1">Phase 1</button>
-  <button id="button1">Phase 2</button>
-  <a href="activities.jsp" id="button2">Phase 3</a>
-  <button id="button3">Phase 4</button>
-  <button id="button3">Phase 5</button>
+    <img style="width:250px" src="images/1.png"/>   
+
+
+<h2 style="font-size:30px">King Abdulaziz City for Science and Technology</h2>
+
+ <p style="padding:20px">King Abdulaziz City for Science and Technology (KACST) is a scientific government 
+        institution that supports and enhances scientific applied research. It coordinates the activities of government
+        institutions and scientific research centers in accordance with the requirements of the development of the
+        Kingdom.</p>
+        </div> 
+        
+    <div class="bb" style=" margin-left: 240px;">
+  <button  class="EditInfoStyle" style="text-align:center; width:auto">Phase 1 »</button>
+  <button id="button1">Phase 2 »</button>
+  <a href="activities.jsp" id="button2">Phase 3 »</a>
+  <button id="button3">Phase 4 »</button>
+  <button id="button3">Phase 5 » </button>
 </div>
 
 </div>

@@ -31,7 +31,7 @@ asa{background: #38569f;}
 	box-sizing: border-box;
 	margin-bottom: 20px;
 	border-radius: 15px;
-	outline: none;se
+	outline: none;
 	font-size: 14px;
 	letter-spacing: 1px;
     border: 1px solid #888;
@@ -93,10 +93,12 @@ asa{background: #38569f;}
 .content1 {
     padding: 10px;
     text-align: center;
+    background-color:;
+        outline: 2px solid white;
     
 }
 .content1:hover{
-    outline: 2px solid white;
+    outline: 2px solid #cacaca;
 }
 
 
@@ -108,17 +110,31 @@ asa{background: #38569f;}
 
     #box {
     
-    width: 680px;
-    border: 3px solid white;
-    padding: 25px;
+    width: 900px;
+    border: 2px solid white;
+    padding: 23px;
     margin: 25px;
-    margin-left: 90px; 
+    background-color:#f0f0f0;
+ /*    margin-left: 90px; */
    
 }
 
 .bb{
     cursor: pointer; /* Pointer/hand icon */
     float: left; /* Float the buttons side by side */
-    margin: 5%;
+    margin: 2%;
    
+}
+
+
+
+.b1 {
+    background-color: white; 
+    color: black; 
+    border: 2px solid #4CAF50;
+}
+
+.b1:hover {
+    background-color: #555555;
+    color: white;
 }
