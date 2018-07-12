@@ -118,7 +118,9 @@ resultSet.next();
         <div style="margin-left:0px"class="collapse navbar-collapse">
         
             <ul  class="nav navbar-nav">         
-                <li><a href="indexSE.jsp">Home</a></li>
+            <li><a style="font-size:30px; color:#52678c"><bm>System Engineering &nbsp; &nbsp;|</b></a>  </li>
+            
+                <li><a href="indexSE.jsp" style="margin-left:18px;">Home</a></li>
               <li>      <% if(resultSet.getString("position").equals("pm")) { %>
      <a href="create.jsp">Create Project</a> <%}%></li>
                           <li> <a href="Logout.jsp">Sign out</a></li>
@@ -157,7 +159,7 @@ resultSet.next();
 <div class="row1"style="">
   <div class="column1">
     <div class="content1">
-        <img src="images/1.png" style="width:70%; height:70%">
+        <img src="images/2.png" style="width:70%; height:70%">
       <h3 style="padding-top:0px">NEOM</h3>
                  
       <div class="button-tu">
@@ -165,10 +167,12 @@ resultSet.next();
       </div>      
       <div class="Login">
       <div id="id01" class="modal">
-      <div class="modal-content animate">
+      <div style="padding-bottom:15px" class="modal-content animate">
           <img src="images/1.png" style="width:auto">
-                <h1>NEOM</h1>
+                <h1>KACST</h1>
           <p style="padding:10px"><b>Description:</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam auctor velit sit amet erat mattis ptesque. Integer ac tempus turpis. Mauris ultrices enim auctor lorem rutrum tempor. </p>
+                    <span style="margin-right:250px"> <b>Project Phases:</b></span><br/>
+                    
                     <img src="images/icon-1.png" style="width:30%; height:30% ">                   
                     <img src="images/icon-2.png" style="width:30%; height:30% ">
                     <img src="images/icon-3.png" style="width:30%; height:30% ">
@@ -185,12 +189,13 @@ resultSet.next();
   <div class="column1">
     <div class="content1">
       <a href="Project.jsp">
-          <img src="images/1.png" style="width:70%; height:70% "></a>
-      <h3 style="padding-top:0px">KACST</h3>
+          <img src="images/1.png" style="width:70%; height:70% ">
+      <h3 style="padding-top:0px" >KACST</h3></a>
            
       <div class="button-tu">
                   <button  onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><span style="font-size:13px; cursor:pointer; text-align:center">Tutorial</span></button>
       </div>      
+      
       <div class="Login">
       <div id="id01" class="modal">
       <div class="modal-content animate">

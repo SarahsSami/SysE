@@ -118,6 +118,8 @@ resultSet.next();
         <div style="margin-left:0px"class="collapse navbar-collapse">
         
             <ul  class="nav navbar-nav">         
+                        <li><a style="font-size:30px; color:#52678c"><bm>System Engineering &nbsp; &nbsp;|</b></a>  </li>
+            
                 <li><a href="indexSE.jsp">Home</a></li>
               <li>      <% if(resultSet.getString("position").equals("pm")) { %>
      <a href="create.jsp">Create Project</a> <%}%></li>
@@ -160,7 +162,7 @@ resultSet.next();
         Kingdom.</p>
         </div>  
         
-    <div class="bb" style=" margin-left: 240px;">
+    <div class="bb" style=" margin-left: 250px;">
   <button  class="EditInfoStyle" style="text-align:center; width:auto">Phase 1 »</button>
   <button id="button1">Phase 2 »</button>
   <a href="activities.jsp" id="button2">Phase 3 »</a>
