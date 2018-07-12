@@ -111,7 +111,7 @@ resultSet.next();
         
             <ul  class="nav navbar-nav">         
                         <li><a style="font-size:30px; color:#52678c"><bm>System Engineering &nbsp; &nbsp;|</b></a>  </li>
-            
+             
                 <li><a href="indexSE.jsp">Home</a></li>
               <li>      <% if(resultSet.getString("position").equals("pm")) { %>
      <a href="create.jsp">Create Project</a> <%}%></li>

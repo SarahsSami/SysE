@@ -58,7 +58,7 @@
 	You can change the style.css (default color purple) to one of these styles
 	
 	1. pink.css
-	2. blue.css
+	2. blue.css 
 	3. turquoise.css
 	4. orange.css
 	5. lightblue.css
