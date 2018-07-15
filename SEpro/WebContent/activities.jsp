@@ -33,7 +33,7 @@
 	<meta name="twitter:card" content="" />
 
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-	<link rel="shortcut icon" href="favicon.ico">
+ <link rel="icon" href="images/favicon-96x96.png" type="image/ico"/>
 
 	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600,400italic,700' rel='stylesheet' type='text/css'>
 	
@@ -122,7 +122,7 @@ resultSet.next();
                      
                 <li><a href="indexSE.jsp">Home</a></li>
               <li>      <% if(resultSet.getString("position").equals("pm")) { %>
-     <a href="create.jsp">Create Project</a> <%}%></li>
+     <a href="createProject.jsp">Create Project</a> <%}%></li>
                           <li> <a href="Logout.jsp">Sign out</a></li>
 
              </ul>
@@ -164,7 +164,9 @@ resultSet.next();
         Kingdom.</p>
         
               <div class="button-tu">
-                  <button  style="width:auto;"><span style="font-size:13px; cursor:pointer; float:right">Change request</span></button>
+                  <button  style="width:auto;"><span style="font-size:13px; cursor:pointer; float:right">View</span></button>
+                      <button  style="width:auto;"><span style="font-size:13px; cursor:pointer; float:right">Change request</span></button>
+    
       </div> 
         </div> 
     <div class="bb" style="margin-left: 230px;">
