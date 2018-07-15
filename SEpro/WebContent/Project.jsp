@@ -173,7 +173,7 @@ name = resultSet2.getString("proName");
 des=resultSet2.getString("proDes");
 %> 
 
-  <div >
+  <div > 
     <img style="padding-bottom:0px; width:250px" src="<%=logo %>"/>   
     </div>
 

@@ -139,7 +139,7 @@ resultSet.next();
                 </li>
             </ul>
         </div>
-    </div>
+    </div> 
  </div>
  		
  <!-- page content-->

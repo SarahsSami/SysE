@@ -382,7 +382,7 @@ resultSet = statement.executeQuery(sql1);
 
 
 
-
+ 
    <% while (resultSet.next()) { %>
 
   <%String logo=null;
