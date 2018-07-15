@@ -120,6 +120,8 @@ resultSet.next();
         <div style="margin-left:0px"class="collapse navbar-collapse">
         
             <ul  class="nav navbar-nav">         
+                        <li><a style="font-size:30px; color:#52678c"><bm>System Engineering &nbsp; &nbsp;|</b></a>  </li>
+            
                 <li><a href="indexSE.jsp">Home</a></li>
               <li>      <% if(resultSet.getString("position").equals("pm")) { %>
      <a href="create.jsp">Create Project</a> <%}%></li>
@@ -161,7 +163,7 @@ resultSet.next();
   research centers in accordance with the requirements of the development of the Kingdom.</p>
 </div>
 
-<div  class="button-tu">
+<div  class="button-tu" style=" margin-right:90px;">
   <input type="button" id="upload" value="Upload"/>
  <input type="button" id="download" value="Download"/>
 <input type="button" id="approve" value="Approve"  />
@@ -189,7 +191,7 @@ $(document).ready(function(){
  
   
 
-
+ 
 
 </div></div></div>
 <!--footer-->

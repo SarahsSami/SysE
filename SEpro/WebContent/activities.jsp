@@ -49,15 +49,16 @@
 	<!-- Bootstrap  -->
 	<link rel="stylesheet" href="css/bootstrap.css">
 	
+
 	<link rel="stylesheet"  href="css/Style-2018.css" type="text/css" >
-	
+		  	<link rel="stylesheet"  href="css/LoginStyle.css" type="text/css" >	
 
 	<!-- 
 	Default Theme Style 
 	You can change the style.css (default color purple) to one of these styles
 	
 	1. pink.css
-	2. blue.css
+	2. blue.css 
 	3. turquoise.css
 	4. orange.css
 	5. lightblue.css
@@ -116,7 +117,9 @@ resultSet.next();
         </div>
         <div style="margin-left:0px"class="collapse navbar-collapse">
         
-            <ul  class="nav navbar-nav">         
+            <ul  class="nav navbar-nav">
+                        <li><a style="font-size:30px; color:#52678c"><bm>System Engineering &nbsp; &nbsp;|</b></a>  </li>
+                     
                 <li><a href="indexSE.jsp">Home</a></li>
               <li>      <% if(resultSet.getString("position").equals("pm")) { %>
      <a href="create.jsp">Create Project</a> <%}%></li>
