@@ -13,10 +13,12 @@
   <input type="text" name="pname" required="required">
   <br>
   Project logo:<br>
-  <input type="file" name="pic" required="required"> <br>
+  <input type="file" name="pic" required="required"> <br><br>
   Project description:<br>
   <textarea name="pdesc" style="width:350px; height:200px" required="required">
-</textarea><br>
+</textarea><br><br>
+ Project resources:
+
     
 
   <input type="submit" value="Create">
