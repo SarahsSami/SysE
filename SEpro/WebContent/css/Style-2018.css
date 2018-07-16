@@ -81,6 +81,7 @@ asa{background: #38569f;}
 .column1 {
     float: left;
     width: 25%;
+    
 }
 /* Clear floats after rows */ 
 .row1:after {
@@ -95,6 +96,7 @@ asa{background: #38569f;}
     text-align: center;
     background-color:;
         outline: 2px solid white;
+
     
 }
 .content1:hover{
@@ -137,4 +139,24 @@ asa{background: #38569f;}
 .b1:hover {
     background-color: #555555;
     color: white;
+}
+
+
+.img-wrap img {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-height: 100%;
+  min-width: 100%;
+  transform: translate(-50%, -50%);
+}
+
+.img-wrap {
+  width: 200px;
+  height: 150px;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  margin: 0;
 }
