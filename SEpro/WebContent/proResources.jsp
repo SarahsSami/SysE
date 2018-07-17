@@ -118,7 +118,7 @@ Class.forName("com.mysql.jdbc.Driver").newInstance();
       <%
       
       resultset.first();%>
-      
+       <option>none</option>
    
       <option> <%= resultset.getString(2) %></option>
    <%    while (resultset.next()){ %>
@@ -156,6 +156,7 @@ Class.forName("com.mysql.jdbc.Driver").newInstance();
       <%
       
       resultset.first();%>
+             <option>none</option>
       
     
       <option> <%= resultset.getString(2) %></option>
@@ -193,6 +194,7 @@ Class.forName("com.mysql.jdbc.Driver").newInstance();
       <%
       
       resultset.first();%>
+             <option>none</option>
       
       <option> <%=  resultset.getString(2) %></option>
    <%    while (resultset.next()){ %>
@@ -229,6 +231,7 @@ Class.forName("com.mysql.jdbc.Driver").newInstance();
       <%
       
       resultset.first();%>
+             <option>none</option>
       
       <option> <%= resultset.getString(2) %></option>
    <%    while (resultset.next()){ %>
@@ -265,6 +268,7 @@ Class.forName("com.mysql.jdbc.Driver").newInstance();
       <%
       
       resultset.first();%>
+             <option>none</option>
       
       <option> <%=  resultset.getString(2) %></option>
    <%    while (resultset.next()){ %>
@@ -303,6 +307,7 @@ Class.forName("com.mysql.jdbc.Driver").newInstance();
       <%
       
       resultset.first();%>
+             <option>none</option>
       
       <option> <%=  resultset.getString(2) %></option>
    <%    while (resultset.next()){ %>
@@ -337,6 +342,7 @@ Class.forName("com.mysql.jdbc.Driver").newInstance();
       <%
       
       resultset.first();%>
+             <option>none</option>
       
     
       <option> <%=  resultset.getString(2) %></option>
@@ -374,6 +380,7 @@ Class.forName("com.mysql.jdbc.Driver").newInstance();
       <%
       
       resultset.first();%>
+             <option>none</option>
       
       <option> <%=   resultset.getString(2) %></option>
    <%    while (resultset.next()){ %>
@@ -407,6 +414,7 @@ Class.forName("com.mysql.jdbc.Driver").newInstance();
       <%
       
       resultset.first();%>
+             <option>none</option>
       
       <option> <%=  resultset.getString(2) %></option>
    <%    while (resultset.next()){ %>
@@ -441,6 +449,7 @@ Class.forName("com.mysql.jdbc.Driver").newInstance();
       <%
       
       resultset.first();%>
+             <option>none</option>
       
       <option> <%=  resultset.getString(2) %></option>
    <%    while (resultset.next()){ %>
