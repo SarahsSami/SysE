@@ -33,25 +33,45 @@
 	<meta name="twitter:card" content="" />
 
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
- <link rel="icon" href="images/favicon-96x96.png" type="image/ico"/>
 
-	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600,400italic,700' rel='stylesheet' type='text/css'>
+	
+
+	
+	
+	
+
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	
+ 
+
+ 
+  
+  
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	
+	
+	
+	
 	
 	<!-- Animate.css -->
-	<link rel="stylesheet" href="css/animate.css">
+	
 	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="css/icomoon.css">
+	
 	<!-- Simple Line Icons -->
-	<link rel="stylesheet" href="css/simple-line-icons.css">
+	
 	<!-- Owl Carousel -->
 	<link rel="stylesheet" href="css/owl.carousel.min.css">
 	<link rel="stylesheet" href="css/owl.theme.default.min.css">
-	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="css/bootstrap.css">
+
+	
+	
 	
 	<link rel="stylesheet"  href="css/Style-2018.css" type="text/css" >
-			<link rel="stylesheet"  href="css/LoginStyle.css" type="text/css" >
+		<link rel="stylesheet"  href="css/LoginStyle.css" type="text/css" >
 	
+	
+
 
 	<!-- 
 	Default Theme Style 
@@ -68,9 +88,10 @@
 	-->
 	<link rel="stylesheet" href="css/lightblue.css">
 
-	<script src="js/modernizr-2.6.2.min.js"></script>
 
-</head>
+	<link rel="stylesheet" href="css/arrow.css">
+
+
 
 
 <body>
@@ -89,7 +110,7 @@ e.printStackTrace();
 }
 Connection connection = null;
 Statement statement = null;
-ResultSet resultSet = null;
+ResultSet resultSet = null, resultSet2 = null;
 try {
 connection = DriverManager.getConnection(
 connectionUrl + dbName, userId, password);
@@ -121,8 +142,10 @@ resultSet.next();
                         <li><a style="font-size:30px; color:#52678c"><bm>System Engineering &nbsp; &nbsp;|</b></a>  </li>
             
                 <li><a href="indexSE.jsp">Home</a></li>
+                <li><a href="Tutorial.jsp" >Tutorial</a></li>
+                
               <li>      <% if(resultSet.getString("position").equals("pm")) { %>
-     <a href="createProject.jsp">Create Project</a> <%}%></li>
+     <a href="create.jsp">Create Project</a> <%}%></li>
                           <li> <a href="Logout.jsp">Sign out</a></li>
 
              </ul>
@@ -149,37 +172,281 @@ resultSet.next();
 			
 <!--view projects example -->
 <div class="main1" style="    text-align:center; margin-left:100px; margin-top:70px">
-<div id="box">
+<div id="box" >
 
-    <img style="width:250px" src="images/1.png"/>   
+	<%
+	
+	String  id= request.getParameter("id");
+	String id2= "'"+id+"'";
+	//int id = Integer.parseInteger(n);%>
+
+<%
+try {
+
+connection = DriverManager.getConnection(
+connectionUrl + dbName, userId, password);
+statement = connection.createStatement();
 
 
-<h2 style="font-size:30px">King Abdulaziz City for Science and Technology</h2>
+String user1= ""+session.getAttribute("id");
+String sql1 = "SELECT * FROM marketing.project where idp = "+id;
+resultSet2 = statement.executeQuery(sql1);
+resultSet2.next();
 
- <p style="padding:20px">King Abdulaziz City for Science and Technology (KACST) is a scientific government 
-        institution that supports and enhances scientific applied research. It coordinates the activities of government
-        institutions and scientific research centers in accordance with the requirements of the development of the
-        Kingdom.</p>
-        </div>  
+String name= "", des="", logo="";
+
+logo = resultSet2.getString("proLogo");
+name = resultSet2.getString("proName");
+des=resultSet2.getString("proDes");
+%> 
+
+   <div class="img-wrap" >  <img style="width:100%; height:100% " src="<%=logo %>"/>   </div>
+  
+<!--  -->
+
+
+
+<h2 style="font-size:30px; "><%=name %></h2>
+
+<br/>
+ <div  class="img-wrapm" style="width:60%; height:60%; text-align:center"> 
+ <img   id="img1" src="images/Phase1.png"  style="display:none; width:150%; height:150%; padding-left:100px" />
+ <img  id="img2"  src="images/Phase2.png"  style="display:none; width:150%; height:150%; padding-left:100px" />
+ <img  id="img3"  src="images/Phase3.png"  style="display:none; width:150%; height:150%; padding-left:100px" />
+ <img  id="img4"  src="images/Phase4.png"  style="display:none; width:150%; height:150%; padding-left:100px" />
+ <img  id="img5"  src="images/Phase5.png"  style="display:none; width:150%; height:150%; padding-left:100px" />
+ <img id="img6"   src="images/Phase6.png"  style="display:none; width:150%; height:150%; padding-left:100px" />
+ <img id="img7"   src="images/Phase7.png"  style="display:none; width:150%; height:150%; padding-left:100px" />
+  
+ 
+  </div> 
+
+    <div class="bb" style="margin-top:30px">
+  <!--  <div  id="PhaseId"  onChange="selectChange(this.value)"  >-->
+  <button onclick="myFunction1()" value="1" class="btn btn-success btn-arrow-right" style="text-align:center; width:auto">User requirement</button>
+  <button onclick="myFunction2()"id="2" class="btn btn-success btn-arrow-right">System requirement</button>
+  <a onclick="myFunction3()" href="activities.jsp" id="3" class="btn btn-primary btn-arrow-right">Architectural design </a>
+  <button onclick="myFunction4()" id="4" class="btn btn-defulte btn-arrow-right">Implementation</button>
+  <button onclick="myFunction5()" id="5" class="btn btn-defulte btn-arrow-right">Integration system</button>
+    <button onclick="myFunction6()" id="6" class="btn btn-defulte btn-arrow-right">Testing</button>
+    <button onclick="myFunction7()"id="7" class="btn btn-defulte btn-arrow-right">Deployment</button>
+ <!-- </div>-->
+
+</div>
+
+<script>
+var x1 = document.getElementById("img1");
+var x2 = document.getElementById("img2");
+var x3 = document.getElementById("img3");
+var x4 = document.getElementById("img4");
+var x5 = document.getElementById("img5");
+var x6 = document.getElementById("img6");
+var x7 = document.getElementById("img7");
+
+function myFunction1() {
+    
+    if (x1.style.display === "none") {
+        x1.style.display = "block";
+        x2.style.display = "none";
+        x3.style.display = "none";
+        x4.style.display = "none";
+        x5.style.display = "none";
+        x6.style.display = "none";
+        x7.style.display = "none";
         
-    <div class="bb" style=" margin-left: 250px;">
-  <button  class="EditInfoStyle" style="text-align:center; width:auto">Phase 1 »</button>
-  <button id="button1">Phase 2 »</button>
-  <a href="activities.jsp" id="button2">Phase 3 »</a>
-  <button id="button3">Phase 4 »</button>
-  <button id="button3">Phase 5 » </button>
-</div>
+    } else {
+        x1.style.display = "none";
+        x2.style.display = "none";
+        x3.style.display = "none";
+        x4.style.display = "none";
+        x5.style.display = "none";
+        x6.style.display = "none";
+        x7.style.display = "none";
+    }
+}
 
-</div>
+
+function myFunction2() {
+    
+    if (x2.style.display === "none") {
+        x2.style.display = "block";
+        x1.style.display = "none";
+        x3.style.display = "none";
+        x4.style.display = "none";
+        x5.style.display = "none";
+        x6.style.display = "none";
+        x7.style.display = "none";
+        
+    } else {
+        x1.style.display = "none";
+        x2.style.display = "none";
+        x3.style.display = "none";
+        x4.style.display = "none";
+        x5.style.display = "none";
+        x6.style.display = "none";
+        x7.style.display = "none";
+    }
+}
+
+function myFunction3() {
+    
+    if (x3.style.display === "none") {
+        x3.style.display = "block";
+        x2.style.display = "none";
+        x1.style.display = "none";
+        x4.style.display = "none";
+        x5.style.display = "none";
+        x6.style.display = "none";
+        x7.style.display = "none";
+        
+    } else {
+        x1.style.display = "none";
+        x2.style.display = "none";
+        x3.style.display = "none";
+        x4.style.display = "none";
+        x5.style.display = "none";
+        x6.style.display = "none";
+        x7.style.display = "none";
+    }
+}
+function myFunction4() {
+    
+    if (x4.style.display === "none") {
+        x4.style.display = "block";
+        x2.style.display = "none";
+        x3.style.display = "none";
+        x1.style.display = "none";
+        x5.style.display = "none";
+        x6.style.display = "none";
+        x7.style.display = "none";
+        
+    } else {
+        x1.style.display = "none";
+        x2.style.display = "none";
+        x3.style.display = "none";
+        x4.style.display = "none";
+        x5.style.display = "none";
+        x6.style.display = "none";
+        x7.style.display = "none";
+    }
+}
+function myFunction5() {
+    
+    if (x5.style.display === "none") {
+        x5.style.display = "block";
+        x2.style.display = "none";
+        x3.style.display = "none";
+        x1.style.display = "none";
+        x4.style.display = "none";
+        x6.style.display = "none";
+        x7.style.display = "none";
+        
+    } else {
+        x1.style.display = "none";
+        x2.style.display = "none";
+        x3.style.display = "none";
+        x4.style.display = "none";
+        x5.style.display = "none";
+        x6.style.display = "none";
+        x7.style.display = "none";
+    }
+}
+function myFunction6() {
+    
+    if (x6.style.display === "none") {
+        x6.style.display = "block";
+        x2.style.display = "none";
+        x3.style.display = "none";
+        x1.style.display = "none";
+        x5.style.display = "none";
+        x4.style.display = "none";
+        x7.style.display = "none";
+        
+    } else {
+        x1.style.display = "none";
+        x2.style.display = "none";
+        x3.style.display = "none";
+        x4.style.display = "none";
+        x5.style.display = "none";
+        x6.style.display = "none";
+        x7.style.display = "none";
+    }
+}
+function myFunction7() {
+    
+    if (x7.style.display === "none") {
+        x7.style.display = "block";
+        x2.style.display = "none";
+        x3.style.display = "none";
+        x1.style.display = "none";
+        x5.style.display = "none";
+        x6.style.display = "none";
+        x4.style.display = "none";
+        
+    } else {
+        x1.style.display = "none";
+        x2.style.display = "none";
+        x3.style.display = "none";
+        x4.style.display = "none";
+        x5.style.display = "none";
+        x6.style.display = "none";
+        x7.style.display = "none";
+    }
+}
+function selectChange(val) {
+    //Set the value of action in action attribute of form element.
+    //Submit the form
+    if(val==="1")
+    {
+       //document.getElementById("PhaseId").style.visibility='visible';
+              document.getElementById("img1").style.visibility='visible';
+
+    }else if(val==="2")
+    {
+              document.getElementById("PhaseId").style.visibility='hidden';
+              document.getElementById("img2").style.visibility='hidden'; 
+    }else if(val==="3")
+    {
+              document.getElementById("PhaseId").style.visibility='hidden';
+              document.getElementById("img3").style.visibility='hidden'; 
+    }else if(val==="4")
+	    {
+              document.getElementById("PhaseId").style.visibility='hidden';
+              document.getElementById("img4").style.visibility='hidden'; 
+	    }else if(val==="5")
+	    {
+	          document.getElementById("PhaseId").style.visibility='hidden';
+	          document.getElementById("img5").style.visibility='hidden'; 
+	    
+        }else if(val==="6")
+        {
+              document.getElementById("PhaseId").style.visibility='hidden';
+              document.getElementById("img6").style.visibility='hidden'; 
+        }else if(val==="7")
+        {
+              document.getElementById("PhaseId").style.visibility='hidden';
+              document.getElementById("img7").style.visibility='hidden'; 
+}
+}
+</script>
 </div>  
 </div> 
+ 
+ 
+ 
+ 
  
 
 
 
 
 
-</div></div></div>
+</div></div></div></div>
+<%}
+
+catch (Exception e) {
+e.printStackTrace();
+} %>
 <!--footer-->
             
 	<footer id="footer" role="contentinfo">

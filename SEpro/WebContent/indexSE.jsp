@@ -396,7 +396,7 @@ name = resultSet.getString("proName");
   
    <div class="column1">
     <div class="content1">
-        <img src="<%=logo%> " style="width:60%; height:60% ">
+       <div class="img-wrap" > <img style="width:100%; height:100% " src="<%=logo%>" ></div>
       <h3 style="padding-top:0px"><a href=<%="\" Project.jsp?id="+resultSet.getInt(1)+ "\"" %>><%=name%></a></h3> 
       
       

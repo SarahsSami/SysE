@@ -123,6 +123,8 @@ resultSet.next();
                         <li><a style="font-size:30px; color:#52678c"><bm>System Engineering &nbsp; &nbsp;|</b></a>  </li>
             
                 <li><a href="indexSE.jsp">Home</a></li>
+               <li><a href="Tutorial.jsp" >Tutorial</a></li>
+                
               <li>      <% if(resultSet.getString("position").equals("pm")) { %>
      <a href="createProject.jsp">Create Project</a> <%}%></li>
                           <li> <a href="Logout.jsp">Sign out</a></li>

@@ -31,27 +31,43 @@
 	<meta name="twitter:image" content="" />
 	<meta name="twitter:url" content="" />
 	<meta name="twitter:card" content="" />
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	
+ 
 
+ 
+  
+  
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
- <link rel="icon" href="images/favicon-96x96.png" type="image/ico"/>
-
-	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600,400italic,700' rel='stylesheet' type='text/css'>
+	
+	
+	
+	
 	
 	<!-- Animate.css -->
-	<link rel="stylesheet" href="css/animate.css">
+	
 	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="css/icomoon.css">
+	
 	<!-- Simple Line Icons -->
-	<link rel="stylesheet" href="css/simple-line-icons.css">
+	
 	<!-- Owl Carousel -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	
 	<link rel="stylesheet" href="css/owl.carousel.min.css">
 	<link rel="stylesheet" href="css/owl.theme.default.min.css">
-	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="css/bootstrap.css">
+
+		<link rel="stylesheet" href="css/arrow.css">
 	
+<<<<<<< HEAD
+	
+	
+
+=======
 
 	<link rel="stylesheet"  href="css/Style-2018.css" type="text/css" >
 		  	<link rel="stylesheet"  href="css/LoginStyle.css" type="text/css" >	
+>>>>>>> branch 'master' of https://github.com/SarahsSami/SysE.git
 
 	<!-- 
 	Default Theme Style 
@@ -68,15 +84,23 @@
 	-->
 	<link rel="stylesheet" href="css/lightblue.css">
 
-	<script src="js/modernizr-2.6.2.min.js"></script>
+
+
+
+
+
+
 
 </head>
 
 
 <body>
-    
-                    <%
-    //to display the ideas from database to ideas bank 
+   
+   
+     
+     
+     
+                      <%
 String driverName = "com.mysql.jdbc.Driver";
 String connectionUrl = "jdbc:mysql://localhost:3306/";
 String dbName = "marketing";
@@ -121,8 +145,10 @@ resultSet.next();
                         <li><a style="font-size:30px; color:#52678c"><bm>System Engineering &nbsp; &nbsp;|</b></a>  </li>
                      
                 <li><a href="indexSE.jsp">Home</a></li>
+                 <li><a href="Tutorial.jsp" >Tutorial</a></li>
+                
               <li>      <% if(resultSet.getString("position").equals("pm")) { %>
-     <a href="createProject.jsp">Create Project</a> <%}%></li>
+     <a href="create.jsp">Create Project</a> <%}%></li>
                           <li> <a href="Logout.jsp">Sign out</a></li>
 
              </ul>
@@ -164,18 +190,19 @@ resultSet.next();
         Kingdom.</p>
         
               <div class="button-tu">
-                  <button  style="width:auto;"><span style="font-size:13px; cursor:pointer; float:right">View</span></button>
-                      <button  style="width:auto;"><span style="font-size:13px; cursor:pointer; float:right">Change request</span></button>
-    
+                  <button  style="width:auto;"><span style="font-size:13px; cursor:pointer; float:right">Change request</span></button>
       </div> 
         </div> 
-    <div class="bb" style="margin-left: 230px;">
-  <button id="button1">Activity 1 » </button>
-  <button id="button1">Activity 2 »</button>
-  <a href="act.jsp" id="button2">Activity 3 »</a>
-  <button id="button3">Activity 4 »</button>
-  <button id="button3">Activity 5 »</button>
-</div>
+        
+        
+    <div class="bb" >
+  <button id="button1" class="btn btn-success btn-arrow-right">Activity 1  </button>
+  <button id="button1 " type="button"  class="btn btn-success btn-arrow-right">Activity 2 </button>
+  <a href="act.jsp" id="button2" type="button" class="btn btn-primary btn-arrow-right">Activity 3 </a>
+  
+  <button id="button3" class="btn btn-defulte btn-arrow-right">Activity 4 </button>
+  <button id="button3" class="btn btn-defulte btn-arrow-right">Activity 5 </button>
+ </div>
 
  
 </div>

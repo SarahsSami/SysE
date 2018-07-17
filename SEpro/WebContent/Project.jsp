@@ -86,7 +86,7 @@ e.printStackTrace();
 }
 Connection connection = null;
 Statement statement = null;
-ResultSet resultSet = null , resultSet2 = null;
+ResultSet resultSet = null , resultSet2 = null, resultSet3 = null;
 
 try {
 connection = DriverManager.getConnection(
@@ -114,6 +114,8 @@ resultSet.next();
                         <li><a style="font-size:30px; color:#52678c"><bm>System Engineering &nbsp; &nbsp;|</b></a>  </li>
              
                 <li><a href="indexSE.jsp">Home</a></li>
+                   <li><a href="Tutorial.jsp" >Tutorial</a></li>
+                
               <li>      <% if(resultSet.getString("position").equals("pm")) { %>
      <a href="createProject.jsp">Create Project</a> <%}%></li>
                           <li> <a href="Logout.jsp">Sign out</a></li>
@@ -148,8 +150,6 @@ resultSet.next();
 
 	<%
 	
-	
-	
 	String  id= request.getParameter("id");
 	String id2= "'"+id+"'";
 	//int id = Integer.parseInteger(n);%>
@@ -160,6 +160,9 @@ try {
 connection = DriverManager.getConnection(
 connectionUrl + dbName, userId, password);
 statement = connection.createStatement();
+
+
+
 String user1= ""+session.getAttribute("id");
 String sql1 = "SELECT * FROM marketing.project where idp = "+id;
 resultSet2 = statement.executeQuery(sql1);
@@ -173,16 +176,22 @@ name = resultSet2.getString("proName");
 des=resultSet2.getString("proDes");
 %> 
 
-  <div > 
-    <img style="padding-bottom:0px; width:250px" src="<%=logo %>"/>   
-    </div>
+   <div class="img-wrap" >  <img style="width:100%; height:100% " src="<%=logo %>"/>   </div>
+  
 
 
 <h2 style="font-size:30px; "><%=name %></h2>
 
 <br/>
  <p style="padding:20px"><%=des %></p>
-<form action="Phases.jsp" class="Login">
+ 
+ <% 
+ // String sql3 = "SELECT * FROM marketing.project;";
+// resultSet3 = statement.executeQuery(sql3);
+// resultSet3.next();
+ %>
+ <a href=<%="\" Phases.jsp?id="+resultSet2.getInt(1)+ "\"" %>>View Phases</a>
+<form action="<%="\" Phases.jsp?id="+resultSet2.getInt(1)+ "\"" %>" class="Login">
 <button class="EditInfoStyle" style="text-align:center; width:auto">View Phases</button>
 </form>
 
