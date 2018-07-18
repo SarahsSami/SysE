@@ -396,12 +396,12 @@ name = resultSet.getString("proName");
   
    <div class="column1">
     <div class="content1">
-       <div class="img-wrap" > <img style="width:100%; height:100% " src="<%=logo%>" ></div>
+       <a href=<%="\" Project.jsp?id="+resultSet.getInt(1)+ "\"" %>> <div class="img-wrap" > <img style="width:100%; height:100% " src="<%=logo%>" ></a></div>
       <h3 style="padding-top:0px"><a href=<%="\" Project.jsp?id="+resultSet.getInt(1)+ "\"" %>><%=name%></a></h3> 
       
       
       <div class="button-tu">
-                  <button  onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><span style="font-size:13px; cursor:pointer; text-align:center">Overview</span></button>
+                  <button  onclick="overview(event)" style="width:auto;"><span style="font-size:13px; cursor:pointer; text-align:center">Overview</span></button>
       </div>      
       <div class="Login">
       <div id="id01" class="modal">
@@ -426,10 +426,19 @@ name = resultSet.getString("proName");
 var modal = document.getElementById('id01');
 
 // When the user clicks anywhere outside of the modal, close it
+/*
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
+}
+*/
+function overview(event){
+	document.getElementById('id01').style.display='block';
+	
+	   if (event.target == modal) {
+	        modal.style.display = "none";
+	    }
 }
 </script>
 </div>

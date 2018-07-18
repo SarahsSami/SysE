@@ -59,15 +59,8 @@
 
 		<link rel="stylesheet" href="css/arrow.css">
 	
-<<<<<<< HEAD
-	
-	
-
-=======
-
 	<link rel="stylesheet"  href="css/Style-2018.css" type="text/css" >
 		  	<link rel="stylesheet"  href="css/LoginStyle.css" type="text/css" >	
->>>>>>> branch 'master' of https://github.com/SarahsSami/SysE.git
 
 	<!-- 
 	Default Theme Style 
@@ -94,7 +87,7 @@
 </head>
 
 
-<body>
+<body  >
    
    
      
@@ -113,7 +106,8 @@ e.printStackTrace();
 }
 Connection connection = null;
 Statement statement = null;
-ResultSet resultSet = null;
+ResultSet resultSet = null , rs = null , rs2 = null, rst = null;
+int st=0;
 try {
 connection = DriverManager.getConnection(
 connectionUrl + dbName, userId, password);
@@ -178,6 +172,26 @@ resultSet.next();
 
 
 <div id="box">
+<% 
+
+String  id= request.getParameter("phaseid");%>
+
+
+
+<% 
+String sql2 = "Select * from marketing.activity  where phaseid = "+id;
+ rs = statement.executeQuery(sql2);
+ rs.next();
+ String n = "";
+ 
+// int st = rs.getInt(3);
+//n=st+"";
+
+//while (rs.next()){
+//	st = rs.getInt(3); 
+//n=st+"  " + 1;}
+%>
+
 
     <img style="width:250px" src="images/1.png"/>   
 
@@ -193,28 +207,72 @@ resultSet.next();
                   <button  style="width:auto;"><span style="font-size:13px; cursor:pointer; float:right">Change request</span></button>
       </div> 
         </div> 
-        
-        
-    <div class="bb" >
-  <button id="button1" class="btn btn-success btn-arrow-right">Activity 1  </button>
-  <button id="button1 " type="button"  class="btn btn-success btn-arrow-right">Activity 2 </button>
-  <a href="act.jsp" id="button2" type="button" class="btn btn-primary btn-arrow-right">Activity 3 </a>
+    <%   
+
+String sql3 = "Select * from marketing.phase  where phaseid = "+id;
+ rs = statement.executeQuery(sql3);
+ rs.next();
+
+int num = rs.getInt(3);
+     %> 
   
-  <button id="button3" class="btn btn-defulte btn-arrow-right">Activity 4 </button>
-  <button id="button3" class="btn btn-defulte btn-arrow-right">Activity 5 </button>
- </div>
+   <%  int act =1;
+   for ( int i =0 ; i < num ; i++ ){
+ String sql4 = "Select status from marketing.activity  where activityid = '"+ act +"'AND phaseid ="+id;
+ rst = statement.executeQuery(sql4);
+ rst.next();
+ st = rst.getInt(1);
+ //out.println(st);
+	   %>      	 
+     <button  id="<%=act%>" value="<%=st%>" class="btn btn-success btn-arrow-right">Activity <%=act%>  </button>
+ 
+ <script type="text/javascript">
+ 
+ var status =document.getElementById("<%=st%>").value;
+ var act = document.getElementById("<%=act%>");
 
+	   if (status==="1"){
+		act.style.background = "green";
+		//act.style.border = "green";
+
+} if (status==="2"){
+		act.style.background = "blue";
+} if (status==="3"){
+		act.style.background = "grey";
+		}
+
+	   
+
+		
+function myFunction(){
+			/*
+			alert("ddd");
+	var status =document.getElementById("").value;
+	 var act = document.getElementById("");
+
+		   if (status==="1"){
+			act.style.color = "blue";
+	} else if (status==="0"){
+			act.style.color = "yellow";
+	} else if (status==="2"){
+			act.style.color = "black";
+			}*/
+}
+ </script>
+   <%  act++;
+} %>
  
 </div>
 </div>
 </div>
- 
-
- 
 
 
+<!-- style="background-color: black; border:black" -->
 
 </div></div></div>
+
+
+
 <!--footer-->
             
 	<footer id="footer" role="contentinfo">

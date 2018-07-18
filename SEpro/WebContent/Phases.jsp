@@ -103,6 +103,7 @@ String connectionUrl = "jdbc:mysql://localhost:3306/";
 String dbName = "marketing";
 String userId = "root";
 String password = "";
+int phid1=0,phid2=0,phid3=0,phid4=0,phid5=0,phid6=0,phid7=0;
 try {
 Class.forName(driverName);
 } catch (ClassNotFoundException e) {
@@ -110,7 +111,7 @@ e.printStackTrace();
 }
 Connection connection = null;
 Statement statement = null;
-ResultSet resultSet = null, resultSet2 = null;
+ResultSet resultSet = null, resultSet2 = null , resultSet3 = null;
 try {
 connection = DriverManager.getConnection(
 connectionUrl + dbName, userId, password);
@@ -119,7 +120,9 @@ String user= ""+session.getAttribute("id");
 String sql = "SELECT * FROM marketing.users where ID ="+user;
 resultSet = statement.executeQuery(sql);
 resultSet.next();
+
 %>
+
 <div id="wrapper">
 
 
@@ -198,6 +201,8 @@ String name= "", des="", logo="";
 logo = resultSet2.getString("proLogo");
 name = resultSet2.getString("proName");
 des=resultSet2.getString("proDes");
+
+int pid = resultSet2.getInt(1);
 %> 
 
    <div class="img-wrap" >  <img style="width:100%; height:100% " src="<%=logo %>"/>   </div>
@@ -210,22 +215,100 @@ des=resultSet2.getString("proDes");
 
 <br/>
  <div  class="img-wrapm" style="width:60%; height:60%; text-align:center"> 
- <img   id="img1" src="images/Phase1.png"  style="display:none; width:150%; height:150%; padding-left:100px" />
- <img  id="img2"  src="images/Phase2.png"  style="display:none; width:150%; height:150%; padding-left:100px" />
- <img  id="img3"  src="images/Phase3.png"  style="display:none; width:150%; height:150%; padding-left:100px" />
- <img  id="img4"  src="images/Phase4.png"  style="display:none; width:150%; height:150%; padding-left:100px" />
- <img  id="img5"  src="images/Phase5.png"  style="display:none; width:150%; height:150%; padding-left:100px" />
- <img id="img6"   src="images/Phase6.png"  style="display:none; width:150%; height:150%; padding-left:100px" />
- <img id="img7"   src="images/Phase7.png"  style="display:none; width:150%; height:150%; padding-left:100px" />
-  
+ <div  id="img1"  style="display:none" >
+ <h3>Activity diagram:</h3>
+ <img  src="images/Phase1.png"  style=" width:150%; height:150%; padding-left:100px" />
+  <div>
+<%
+String sql2 = "SELECT * FROM marketing.phase";
+resultSet3 = statement.executeQuery(sql2);
+resultSet3.next();
+phid1= resultSet3.getInt(1);
+%>
+
+<a href="activities.jsp?id=<%=pid%>&phaseid=<%=phid1%>" >View activities</a>
+</div>
+ </div>
+ <!-- *********** -->
+ <div  id="img2"  style="display:none" >
+ <h3>Activity diagram:</h3>
+ <img  src="images/Phase2.png"  style=" width:150%; height:150%; padding-left:100px" />
+  <div>
+  <% 
+resultSet3.next();
+phid2= resultSet3.getInt(1);
+%>
+<a href="activities.jsp?id=<%=pid%>&phaseid=<%=phid2%>" >View activities</a>
+</div>
+ </div> 
+ <!-- *********** -->
+ <div  id="img3"  style="display:none" >
+ <h3>Activity diagram:</h3>
+ <img  src="images/Phase2.png"  style=" width:150%; height:150%; padding-left:100px" />
+  <div>
+  <% 
+resultSet3.next();
+phid3= resultSet3.getInt(1);
+%>
+<a href="activities.jsp?id=<%=pid%>&phaseid=<%=phid3%>" >View activities</a>
+</div>
+ </div> 
+ <!-- *********** -->
+ <div  id="img4"  style="display:none" >
+ <h3>Activity diagram:</h3>
+ <img  src="images/Phase2.png"  style=" width:150%; height:150%; padding-left:100px" />
+  <div>
+  <% 
+resultSet3.next();
+phid4= resultSet3.getInt(1);
+%>
+<a href="activities.jsp?id=<%=pid%>&phaseid=<%=phid4%>" >View activities</a>
+</div>
+ </div>
+ <!-- *********** -->
+ <div  id="img5"  style="display:none" >
+ <h3>Activity diagram:</h3>
+ <img  src="images/Phase2.png"  style=" width:150%; height:150%; padding-left:100px" />
+  <div>
+  <% 
+resultSet3.next();
+phid5= resultSet3.getInt(1);
+%>
+<a href="activities.jsp?id=<%=pid%>&phaseid=<%=phid5%>" >View activities</a>
+</div>
+ </div>
+ <!-- *********** -->
+ <div  id="img6"  style="display:none" >
+ <h3>Activity diagram:</h3>
+ <img  src="images/Phase2.png"  style=" width:150%; height:150%; padding-left:100px" />
+  <div>
+  <% 
+resultSet3.next();
+phid6= resultSet3.getInt(1);
+%>
+<a href="activities.jsp?id=<%=pid%>&phaseid=<%=phid6%>" >View activities</a>
+</div>
+ </div>
+ <!-- *********** -->
+ <div  id="img7"  style="display:none" >
+ <h3>Activity diagram:</h3>
+ <img  src="images/Phase2.png"  style=" width:150%; height:150%; padding-left:100px" />
+  <div>
+  <% 
+resultSet3.next();
+phid7= resultSet3.getInt(1);
+%>
+<a href="activities.jsp?id=<%=pid%>&phaseid=<%=phid7%>" >View activities</a>
+</div>
+</div>  
  
   </div> 
 
     <div class="bb" style="margin-top:30px">
   <!--  <div  id="PhaseId"  onChange="selectChange(this.value)"  >-->
-  <button onclick="myFunction1()" value="1" class="btn btn-success btn-arrow-right" style="text-align:center; width:auto">User requirement</button>
+  <a onclick="myFunction1()" id="1" class="btn btn-success btn-arrow-right" style="text-align:center; width:auto">User requirement</a>
   <button onclick="myFunction2()"id="2" class="btn btn-success btn-arrow-right">System requirement</button>
-  <a onclick="myFunction3()" href="activities.jsp" id="3" class="btn btn-primary btn-arrow-right">Architectural design </a>
+  <a onclick="myFunction3()" id="3" class="btn btn-primary btn-arrow-right">Architectural design </a>
   <button onclick="myFunction4()" id="4" class="btn btn-defulte btn-arrow-right">Implementation</button>
   <button onclick="myFunction5()" id="5" class="btn btn-defulte btn-arrow-right">Integration system</button>
     <button onclick="myFunction6()" id="6" class="btn btn-defulte btn-arrow-right">Testing</button>
@@ -233,6 +316,7 @@ des=resultSet2.getString("proDes");
  <!-- </div>-->
 
 </div>
+
 
 <script>
 var x1 = document.getElementById("img1");
@@ -438,15 +522,13 @@ function selectChange(val) {
  
 
 
-
-
-
 </div></div></div></div>
+
+
 <%}
 
 catch (Exception e) {
-e.printStackTrace();
-} %>
+	e.printStackTrace();} %>
 <!--footer-->
             
 	<footer id="footer" role="contentinfo">
@@ -478,7 +560,6 @@ e.printStackTrace();
 
  <%}
 catch (Exception e) {
-e.printStackTrace();
-} %>
+	e.printStackTrace();} %>
 </body>
 </html>
