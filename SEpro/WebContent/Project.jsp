@@ -168,7 +168,7 @@ String sql1 = "SELECT * FROM marketing.project where idp = "+id;
 resultSet2 = statement.executeQuery(sql1);
 resultSet2.next();
 
-
+ 
 String name= "", des="", logo="";
 
 logo = resultSet2.getString("proLogo");

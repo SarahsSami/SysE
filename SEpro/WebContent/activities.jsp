@@ -221,7 +221,7 @@ int num = rs.getInt(3);
  String sql4 = "Select status from marketing.activity  where activityid = '"+ act +"'AND phaseid ="+id;
  rst = statement.executeQuery(sql4);
  rst.next();
- st = rst.getInt(1);
+ st = rst.getInt(1); 
  //out.println(st);
 	   %>      	 
      <button  id="<%=act%>" value="<%=st%>" class="btn btn-success btn-arrow-right">Activity <%=act%>  </button>

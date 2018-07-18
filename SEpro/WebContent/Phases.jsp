@@ -334,7 +334,7 @@ function myFunction1() {
         x2.style.display = "none";
         x3.style.display = "none";
         x4.style.display = "none";
-        x5.style.display = "none";
+        x5.style.display = "none"; 
         x6.style.display = "none";
         x7.style.display = "none";
         

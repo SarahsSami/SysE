@@ -400,7 +400,7 @@ name = resultSet.getString("proName");
       <h3 style="padding-top:0px"><a href=<%="\" Project.jsp?id="+resultSet.getInt(1)+ "\"" %>><%=name%></a></h3> 
       
       
-      <div class="button-tu">
+      <div class="button-tu"> 
                   <button  onclick="overview(event)" style="width:auto;"><span style="font-size:13px; cursor:pointer; text-align:center">Overview</span></button>
       </div>      
       <div class="Login">
