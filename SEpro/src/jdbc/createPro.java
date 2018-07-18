@@ -56,12 +56,9 @@ Class.forName("com.mysql.jdbc.Driver");
 	ps.setString(3, proD);
 	
 	ps.executeUpdate(); 
-	PrintWriter out = response.getWriter(); //to check connection
-	out.println("success!!!!");
-  
-			
+	response.sendRedirect("proResources.jsp");	
 		}
-		
+	
 		catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
