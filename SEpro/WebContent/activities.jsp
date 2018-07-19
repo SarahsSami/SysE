@@ -106,7 +106,8 @@ e.printStackTrace();
 }
 Connection connection = null;
 Statement statement = null;
-ResultSet resultSet = null , rs = null , rs2 = null, rst = null;
+ResultSet resultSet = null , rs = null , rs2 = null, rst = null, rsAct=null;
+String sqlAct="",sqlAct1="",sqlAct2="",sqlAct3="",sqlAct4="",sqlAct5="";
 int st=0;
 try {
 connection = DriverManager.getConnection(
@@ -144,7 +145,6 @@ resultSet.next();
               <li>      <% if(resultSet.getString("position").equals("pm")) { %>
      <a href="create.jsp">Create Project</a> <%}%></li>
                           <li> <a href="Logout.jsp">Sign out</a></li>
-
              </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
@@ -168,63 +168,33 @@ resultSet.next();
 			
 <!--view projects example -->
 <!-- Portfolio Gallery Grid -->
-<div class="main1" style="    text-align:center; margin-left:100px; margin-top:70px">
 
 
-<div id="box">
+
 <% 
-
+String actDes1="",actname1="", actrole1="",temp1="", Matrics1="", approval1="";
 String  id= request.getParameter("phaseid");%>
 
 
-
-<% 
-String sql2 = "Select * from marketing.activity  where phaseid = "+id;
- rs = statement.executeQuery(sql2);
- rs.next();
- String n = "";
- 
-// int st = rs.getInt(3);
-//n=st+"";
-
-//while (rs.next()){
-//	st = rs.getInt(3); 
-//n=st+"  " + 1;}
-%>
-
-
-    <img style="width:250px" src="images/1.png"/>   
-
-
-<h2 style="font-size:30px">King Abdulaziz City for Science and Technology</h2>
-
- <p style="padding:20px">King Abdulaziz City for Science and Technology (KACST) is a scientific government 
-        institution that supports and enhances scientific applied research. It coordinates the activities of government
-        institutions and scientific research centers in accordance with the requirements of the development of the
-        Kingdom.</p>
-        
-              <div class="button-tu">
-                  <button  style="width:auto;"><span style="font-size:13px; cursor:pointer; float:right">Change request</span></button>
-      </div> 
-        </div> 
+<!-- Activity buttons -->
     <%   
-
 String sql3 = "Select * from marketing.phase  where phaseid = "+id;
  rs = statement.executeQuery(sql3);
  rs.next();
 
 int num = rs.getInt(3);
-     %> 
-  
+
+     %>   
    <%  int act =1;
    for ( int i =0 ; i < num ; i++ ){
+	   
  String sql4 = "Select status from marketing.activity  where activityid = '"+ act +"'AND phaseid ="+id;
  rst = statement.executeQuery(sql4);
  rst.next();
  st = rst.getInt(1); 
- //out.println(st);
+
 	   %>      	 
-     <button  id="<%=act%>" value="<%=st%>" class="btn btn-success btn-arrow-right">Activity <%=act%>  </button>
+     <button onclick="FunctionAct(<%=act%>)" id="<%=act%>" value="<%=st%>" class="btn btn-success btn-arrow-right">Activity <%=act%>  </button>
  
  <script type="text/javascript">
  
@@ -234,16 +204,22 @@ int num = rs.getInt(3);
 	   if (status==="1"){
 		act.style.background = "green";
 		//act.style.border = "green";
+		act.innerHTML = "Compelete";
 
-} if (status==="2"){
+	   }
+
+	   else  if (status==="2"){
 		act.style.background = "blue";
-} if (status==="3"){
+		act.innerHTML = "in Progress";
+}
+ else  if (status==="3" ){
 		act.style.background = "grey";
-		}
+		act.innerHTML = "incompelete";
 
-	   
+		} 
+ else { act.style.background = "black";}
 
-		
+
 function myFunction(){
 			/*
 			alert("ddd");
@@ -260,16 +236,355 @@ function myFunction(){
 }
  </script>
    <%  act++;
-} %>
+} %> <!-- End Activity buttons   -->
+
+<div class="main1" style="    text-align:center; margin-left:100px; margin-top:70px">
+
+
+<div id="box">
+
+<% 
+String sql2 = "Select * from marketing.activity where phaseid = "+id;
+ rs = statement.executeQuery(sql2);
+ rs.next();
+ String actname = rs.getString("actname");
+ String actDes = rs.getString("actdesc");
+ String actrole = rs.getString("actrole");
+ String temp = rs.getString("template");
+ String Metrics = rs.getString("metrics");
+ String actapproval = rs.getString("actapproval");
+
+ String n = "";
+
+%>
+
+<!-- Activity content -->
+<div class="button-tu"><button style="width:auto;"><span style="font-size:13px; cursor:pointer; text-align:left">Change request</span></button></div> 
+
+<h3 id="actname"></h3>
+
+<div style=" display:flex; justify-content:center; text-align:center">
+<button onclick="myFunction1()"  >Description</button>
+<button onclick="myFunction2()">Role and Responsibilities</button>
+<button onclick="myFunction3()">Templates</button>
+<button onclick="myFunction4()">Metrics</button>
+<button onclick="myFunction5()">Project Plan</button>
+<button onclick="myFunction6()">Approval</button></div>
+
+<div style=" display:flex; justify-content:left; text-align:left">
+
+ <div id="des" style="display:none">
+ <h3>Description</h3>
+ <p id="actdesc1"></p>
+ <p>look up</p>
+ </div>
+ <div id="Role" style="display:none">
+ <h3>Role and Responsibilities</h3>
+  <p id="role1"></p></div>
+  <div id="Temp" style="display:none">
+ <h3>Templates</h3>
+  <p id="temp1"></p>
+  <div class="button-tu"><button style="width:auto;"><span style="font-size:13px; cursor:pointer; float:right">Upload</span></button></div> 
+ <div class="button-tu"><button style="width:auto;"><span style="font-size:13px; cursor:pointer; float:right">Download</span></button></div> 
+ <div class="button-tu"><button style="width:auto;"><span style="font-size:13px; cursor:pointer; float:right">View</span></button></div> 
+</div>
+ <div id="Metrics" style="display:none">
+ <h3>Metrics</h3>
+ <p id="Metrics1"></p></div>
+ <div id="plan" style="display:none">
+ <h3>Project Plan</h3>
+ <p id="Plan1"></p></div>
+ <div id="approval" style="display:none">
+ <h3>Approval</h3>
+ <p id="Approval1"></p></div>
+
+</div>
+</div>
+ <!-- End Activity content -->
+<!-- Activity buttons retrieve js section -->
+ 
+ <script>	  
+var actname = document.getElementById("actname");
+var actdesc = document.getElementById("actdesc1");
+var actrole = document.getElementById("role1");
+var temp = document.getElementById("temp1");
+var Metrics = document.getElementById("Metrics1");
+var Approval = document.getElementById("Approval1");
+
+function ff(){
+    alert("I am an alert box!");  
+}
+function FunctionAct(x){
+	
+	    if (x=="1"){
+		   <% sqlAct1 = "Select * from marketing.activity where activityid ='1'AND phaseid ="+id;
+		    rsAct = statement.executeQuery(sqlAct1);
+		    rsAct.next();
+		    actDes1 = rsAct.getString("actdesc");
+		    actname1 = rsAct.getString("actname");
+			actrole1 = rsAct.getString("actrole");
+			temp1 = rsAct.getString("template");
+			Matrics1 = rsAct.getString("metrics");
+			approval1 = rsAct.getString("actapproval");
+		    %>	 
+		   alert("hi ftm");  
+			actname.innerHTML = "<%=actname1%>";
+			actdesc.innerHTML = "<%=actDes1%>";
+			temp.innerHTML = "<%=temp1%>";
+			Metrics.innerHTML = "<%=Matrics1%>";
+			Approval.innerHTML = "<%=approval1%>";
+
+		     } 
+	      if (x=="2"){
+					   alert("hi srh");  
+
+		  		   <% sqlAct2 = "Select * from marketing.activity where activityid ='2' AND phaseid ="+id;
+				    rsAct = statement.executeQuery(sqlAct2);
+				    rsAct.next();
+				    actDes1 = rsAct.getString("actdesc");
+				    actname1 = rsAct.getString("actname");
+					actrole1 = rsAct.getString("actrole");
+					temp1 = rsAct.getString("template");
+					Matrics1 = rsAct.getString("metrics");
+					approval1 = rsAct.getString("actapproval");
+				    %>	 
+					actname.innerHTML = "<%=actname1%>";
+					actdesc.innerHTML = "<%=actDes1%>";
+					temp.innerHTML = "<%=temp1%>";
+					Metrics.innerHTML = "<%=Matrics1%>";
+					Approval.innerHTML = "<%=approval1%>";
+
+		   			 }
+	         else  if (x=="3"){
+				   alert("hi three");  
+
+	  		   <% sqlAct3 = "Select * from marketing.activity where activityid ='3'AND phaseid ="+id;
+			    rsAct = statement.executeQuery(sqlAct2);
+			    rsAct.next();
+			    actDes1 = rsAct.getString("actdesc");
+			    actname1 = rsAct.getString("actname");
+				actrole1 = rsAct.getString("actrole");
+				temp1 = rsAct.getString("template");
+				Matrics1 = rsAct.getString("metrics");
+				approval1 = rsAct.getString("actapproval");
+			    %>	 
+				actname.innerHTML = "<%=actname1%>";
+				actdesc.innerHTML = "<%=actDes1%>";
+				temp.innerHTML = "<%=temp1%>";
+				Metrics.innerHTML = "<%=Matrics1%>";
+				Approval.innerHTML = "<%=approval1%>";
+
+	   			 } 
+	         else      if (x=="4"){
+				   alert("hi 4");  
+
+	  		   <% sqlAct4 = "Select * from marketing.activity where activityid ='4'AND phaseid ="+id;
+			    rsAct = statement.executeQuery(sqlAct2);
+			    rsAct.next();
+			    actDes1 = rsAct.getString("actdesc");
+			    actname1 = rsAct.getString("actname");
+				actrole1 = rsAct.getString("actrole");
+				temp1 = rsAct.getString("template");
+				Matrics1 = rsAct.getString("metrics");
+				approval1 = rsAct.getString("actapproval");
+			    %>	 
+				actname.innerHTML = "<%=actname1%>";
+				actdesc.innerHTML = "<%=actDes1%>";
+				temp.innerHTML = "<%=temp1%>";
+				Metrics.innerHTML = "<%=Matrics1%>";
+				Approval.innerHTML = "<%=approval1%>";
+
+	   			 } 
+	         else  if (x=="5"){
+				   alert("hi 5");  
+
+	  		   <% sqlAct5 = "Select * from marketing.activity where activityid ='5'AND phaseid ="+id;
+			    rsAct = statement.executeQuery(sqlAct2);
+			    rsAct.next();
+			    actDes1 = rsAct.getString("actdesc");
+			    actname1 = rsAct.getString("actname");
+				actrole1 = rsAct.getString("actrole");
+				temp1 = rsAct.getString("template");
+				Matrics1 = rsAct.getString("metrics");
+				approval1 = rsAct.getString("actapproval");
+			    %>	 
+				actname.innerHTML = "<%=actname1%>";
+				actdesc.innerHTML = "<%=actDes1%>";
+				temp.innerHTML = "<%=temp1%>";
+				Metrics.innerHTML = "<%=Matrics1%>";
+				Approval.innerHTML = "<%=approval1%>";
+
+	   			 } 
+	         else  if (x=="6"){
+				   alert("hi 6");  
+
+	  		   <% sqlAct5 = "Select * from marketing.activity where activityid ='6'AND phaseid ="+id;
+			    rsAct = statement.executeQuery(sqlAct2);
+			    rsAct.next();
+			    actDes1 = rsAct.getString("actdesc");
+			    actname1 = rsAct.getString("actname");
+				actrole1 = rsAct.getString("actrole");
+				temp1 = rsAct.getString("template");
+				Matrics1 = rsAct.getString("metrics");
+				approval1 = rsAct.getString("actapproval");
+			    %>	 
+				actname.innerHTML = "<%=actname1%>";
+				actdesc.innerHTML = "<%=actDes1%>";
+				temp.innerHTML = "<%=temp1%>";
+				Metrics.innerHTML = "<%=Matrics1%>";
+				Approval.innerHTML = "<%=approval1%>";
+
+	   			 } 
+		   	   }</script>
+		   	   <!-- Activity content buttons js section -->
+<script> 
+var x1 = document.getElementById("des");
+var x2 = document.getElementById("Role");
+var x3 = document.getElementById("Temp");
+var x4 = document.getElementById("Metrics");
+var x5 = document.getElementById("plan");
+var x6 = document.getElementById("approval");
+
+function myFunction1() {
+    
+    if (x1.style.display === "none") {
+        x1.style.display = "block";
+        x2.style.display = "none";
+        x3.style.display = "none";
+        x4.style.display = "none";
+        x5.style.display = "none"; 
+        x6.style.display = "none";
+        x7.style.display = "none";
+        
+    } else {
+        x1.style.display = "none";
+        x2.style.display = "none";
+        x3.style.display = "none";
+        x4.style.display = "none";
+        x5.style.display = "none";
+        x6.style.display = "none";
+        x7.style.display = "none";
+    }
+}
+
+function myFunction2() {
+    
+    if (x2.style.display === "none") {
+        x2.style.display = "block";
+        x1.style.display = "none";
+        x3.style.display = "none";
+        x4.style.display = "none";
+        x5.style.display = "none";
+        x6.style.display = "none";
+        x7.style.display = "none";
+        
+    } else {
+        x1.style.display = "none";
+        x2.style.display = "none";
+        x3.style.display = "none";
+        x4.style.display = "none";
+        x5.style.display = "none";
+        x6.style.display = "none";
+        x7.style.display = "none";
+    }
+}
+
+function myFunction3() {
+    
+    if (x3.style.display === "none") {
+        x3.style.display = "block";
+        x2.style.display = "none";
+        x1.style.display = "none";
+        x4.style.display = "none";
+        x5.style.display = "none";
+        x6.style.display = "none";
+        x7.style.display = "none";
+        
+    } else {
+        x1.style.display = "none";
+        x2.style.display = "none";
+        x3.style.display = "none";
+        x4.style.display = "none";
+        x5.style.display = "none";
+        x6.style.display = "none";
+        x7.style.display = "none";
+    }
+}
+function myFunction4() {
+    
+    if (x4.style.display === "none") {
+        x4.style.display = "block";
+        x2.style.display = "none";
+        x3.style.display = "none";
+        x1.style.display = "none";
+        x5.style.display = "none";
+        x6.style.display = "none";
+        x7.style.display = "none";
+        
+    } else {
+        x1.style.display = "none";
+        x2.style.display = "none";
+        x3.style.display = "none";
+        x4.style.display = "none";
+        x5.style.display = "none";
+        x6.style.display = "none";
+        x7.style.display = "none";
+    }
+}
+function myFunction5() {
+    
+    if (x5.style.display === "none") {
+        x5.style.display = "block";
+        x2.style.display = "none";
+        x3.style.display = "none";
+        x1.style.display = "none";
+        x4.style.display = "none";
+        x6.style.display = "none";
+        x7.style.display = "none";
+        
+    } else {
+        x1.style.display = "none";
+        x2.style.display = "none";
+        x3.style.display = "none";
+        x4.style.display = "none";
+        x5.style.display = "none";
+        x6.style.display = "none";
+        x7.style.display = "none";
+    }
+}
+function myFunction6() {
+    
+    if (x6.style.display === "none") {
+        x6.style.display = "block";
+        x2.style.display = "none";
+        x3.style.display = "none";
+        x1.style.display = "none";
+        x5.style.display = "none";
+        x4.style.display = "none";
+        x7.style.display = "none";
+        
+    } else {
+        x1.style.display = "none";
+        x2.style.display = "none";
+        x3.style.display = "none";
+        x4.style.display = "none";
+        x5.style.display = "none";
+        x6.style.display = "none";
+        x7.style.display = "none";
+    }
+}
+    </script>
+
+ 
+  </div> 
+
  
 </div>
 </div>
 </div>
 
 
-<!-- style="background-color: black; border:black" -->
-
-</div></div></div>
+</div>
 
 
 
