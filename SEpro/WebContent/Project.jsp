@@ -190,10 +190,13 @@ des=resultSet2.getString("proDes");
 // resultSet3 = statement.executeQuery(sql3);
 // resultSet3.next();
  %>
- <a href=<%="\" Phases.jsp?id="+resultSet2.getInt(1)+ "\"" %>>View Phases</a>
-<form action="<%="\" Phases.jsp?id="+resultSet2.getInt(1)+ "\"" %>" class="Login">
-<button class="EditInfoStyle" style="text-align:center; width:auto">View Phases</button>
-</form>
+ 
+ 
+ <div class="Login">
+ <a class="BtnLink" href=<%="\" Phases.jsp?id="+resultSet2.getInt(1)+ "\"" %>> <button  style="text-align:center; width:auto">View Phases</button>
+ </a>
+ </div>
+ 
 
 </div>
 </div>

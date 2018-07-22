@@ -41,27 +41,26 @@
   
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	
-	
-	
-	
-	
 	<!-- Animate.css -->
-	
+	<link rel="stylesheet" href="css/animate.css">
 	<!-- Icomoon Icon Fonts-->
-	
+	<link rel="stylesheet" href="css/icomoon.css">
 	<!-- Simple Line Icons -->
-	
+	<link rel="stylesheet" href="css/simple-line-icons.css">
 	<!-- Owl Carousel -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	
 	<link rel="stylesheet" href="css/owl.carousel.min.css">
 	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+	
+	<link rel="stylesheet"  href="css/Style-2018.css" type="text/css" >
+		<link rel="stylesheet"  href="css/LoginStyle.css" type="text/css" >
+	
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	
 
 		<link rel="stylesheet" href="css/arrow.css">
 	
-	<link rel="stylesheet"  href="css/Style-2018.css" type="text/css" >
-		  	<link rel="stylesheet"  href="css/LoginStyle.css" type="text/css" >	
-
 	<!-- 
 	Default Theme Style 
 	You can change the style.css (default color purple) to one of these styles
@@ -107,7 +106,7 @@ e.printStackTrace();
 Connection connection = null;
 Statement statement = null;
 ResultSet resultSet = null , rs = null , rs2 = null, rst = null, rsAct=null;
-String sqlAct="",sqlAct1="",sqlAct2="",sqlAct3="",sqlAct4="",sqlAct5="";
+String sqlAct="",sqlAct1="",sqlAct2="",sqlAct3="",sqlAct4="",sqlAct5="",sqlAct6="";
 int st=0;
 try {
 connection = DriverManager.getConnection(
@@ -137,13 +136,13 @@ resultSet.next();
         <div style="margin-left:0px"class="collapse navbar-collapse">
         
             <ul  class="nav navbar-nav">
-                        <li><a style="font-size:30px; color:#52678c"><bm>System Engineering &nbsp; &nbsp;|</b></a>  </li>
+                        <li><a style="font-size:30px; color:#52678c">System Engineering &nbsp; &nbsp;|</a>  </li>
                      
                 <li><a href="indexSE.jsp">Home</a></li>
                  <li><a href="Tutorial.jsp" >Tutorial</a></li>
                 
               <li>      <% if(resultSet.getString("position").equals("pm")) { %>
-     <a href="create.jsp">Create Project</a> <%}%></li>
+     <a href="createProject.jsp">Create Project</a> <%}%></li>
                           <li> <a href="Logout.jsp">Sign out</a></li>
              </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -151,7 +150,6 @@ resultSet.next();
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <span class="glyphicon glyphicon-user"></span>   
                         <strong id="login"><%=session.getAttribute("name")%></strong>
-                 <!--     <span class="glyphicon glyphicon-chevron-down"></span> -->
                     </a>
                 </li>
             </ul>
@@ -166,9 +164,8 @@ resultSet.next();
 			<div class="row">
 							<div class="col-md-12 section-heading text-center">  
 			
-<!--view projects example -->
-<!-- Portfolio Gallery Grid -->
-
+			
+<!--activities content -->
 
 
 <% 
@@ -181,10 +178,13 @@ String  id= request.getParameter("phaseid");%>
 String sql3 = "Select * from marketing.phase  where phaseid = "+id;
  rs = statement.executeQuery(sql3);
  rs.next();
+String phasename = rs.getString("phasename");
 
 int num = rs.getInt(3);
 
-     %>   
+     %>  
+     			<h2 style="font-size:30px"><%=phasename%> activities</h2><br>
+      
    <%  int act =1;
    for ( int i =0 ; i < num ; i++ ){
 	   
@@ -202,23 +202,21 @@ int num = rs.getInt(3);
  var act = document.getElementById("<%=act%>");
 
 	   if (status==="1"){
-		act.style.background = "green";
-		//act.style.border = "green";
-		act.innerHTML = "Compelete";
-
+		act.style.background = "#5cb85c";
+		act.style.borderColor = "#5cb85c";
+	//	act.innerHTML = "Compelete";
 	   }
-
 	   else  if (status==="2"){
-		act.style.background = "blue";
-		act.innerHTML = "in Progress";
+		act.style.background = "#5585b5";
+		act.style.borderColor = "#5585b5";
+	//	act.innerHTML = "in Progress";
 }
  else  if (status==="3" ){
-		act.style.background = "grey";
-		act.innerHTML = "incompelete";
-
+		act.style.background = "#8b8b8b";
+		act.style.borderColor = "#8b8b8b";
+	//	act.innerHTML = "incompelete";
 		} 
  else { act.style.background = "black";}
-
 
 function myFunction(){
 			/*
@@ -235,8 +233,8 @@ function myFunction(){
 			}*/
 }
  </script>
-   <%  act++;
-} %> <!-- End Activity buttons   -->
+  <%  act++; } %> 
+<!-- End Activity buttons   -->
 
 <div class="main1" style="    text-align:center; margin-left:100px; margin-top:70px">
 
@@ -259,12 +257,12 @@ String sql2 = "Select * from marketing.activity where phaseid = "+id;
 %>
 
 <!-- Activity content -->
-<div class="button-tu"><button style="width:auto;"><span style="font-size:13px; cursor:pointer; text-align:left">Change request</span></button></div> 
+<div class="button-tu"><button style="width:auto;font-size:13px; cursor:pointer; float:right">Change request </button></div> <br>
 
-<h3 id="actname"></h3>
+ <h3 id="actname" style="font-family: sans-serif; color:#737373; text-align:center; font-size:25px"></h3><br>
 
 <div style=" display:flex; justify-content:center; text-align:center">
-<button onclick="myFunction1()"  >Description</button>
+<button onclick="myFunction1()">Description</button>
 <button onclick="myFunction2()">Role and Responsibilities</button>
 <button onclick="myFunction3()">Templates</button>
 <button onclick="myFunction4()">Metrics</button>
@@ -274,29 +272,29 @@ String sql2 = "Select * from marketing.activity where phaseid = "+id;
 <div style=" display:flex; justify-content:left; text-align:left">
 
  <div id="des" style="display:none">
- <h3>Description</h3>
- <p id="actdesc1"></p>
- <p>look up</p>
+ <h3 style="font-family: sans-serif; color:#737373; margin-left:70px">‣ Description</h3>
+ <p id="actdesc1" style="font-family: sans-serif; color:#737373; margin-left:80px"></p>
  </div>
  <div id="Role" style="display:none">
- <h3>Role and Responsibilities</h3>
-  <p id="role1"></p></div>
+ <h3 style="font-family: sans-serif; color:#737373; margin-left:70px">‣ Role and Responsibilities</h3>
+  <p id="role1" style="font-family: sans-serif; color:#737373; margin-left:80px"></p></div>
   <div id="Temp" style="display:none">
- <h3>Templates</h3>
-  <p id="temp1"></p>
-  <div class="button-tu"><button style="width:auto;"><span style="font-size:13px; cursor:pointer; float:right">Upload</span></button></div> 
+ <h3 style="font-family: sans-serif; color:#737373; margin-left:70px">‣ Templates</h3>
+  <p id="temp1" style="font-family: sans-serif; color:#737373; margin-left:80px"></p>
+  <div style=" display:flex; margin-left:70px">
+ <div class="button-tu"><button style="width:auto;"><span style="font-size:13px; cursor:pointer; float:right">Upload</span></button></div> 
  <div class="button-tu"><button style="width:auto;"><span style="font-size:13px; cursor:pointer; float:right">Download</span></button></div> 
  <div class="button-tu"><button style="width:auto;"><span style="font-size:13px; cursor:pointer; float:right">View</span></button></div> 
-</div>
+</div></div>
  <div id="Metrics" style="display:none">
- <h3>Metrics</h3>
- <p id="Metrics1"></p></div>
+ <h3 style="font-family: sans-serif; color:#737373; margin-left:70px">‣ Metrics</h3>
+ <p id="Metrics1" style="font-family: sans-serif; color:#737373; margin-left:80px"></p></div>
  <div id="plan" style="display:none">
- <h3>Project Plan</h3>
- <p id="Plan1"></p></div>
+ <h3 style="font-family: sans-serif; color:#737373; margin-left:70px">‣ Project Plan</h3>
+ <p id="Plan1" style="font-family: sans-serif; color:#737373; margin-left:80px"></p></div>
  <div id="approval" style="display:none">
- <h3>Approval</h3>
- <p id="Approval1"></p></div>
+ <h3 style="font-family: sans-serif; color:#737373; margin-left:70px">‣ Approval</h3>
+ <p id="Approval1" style="font-family: sans-serif; color:#737373; margin-left:80px"></p></div>
 
 </div>
 </div>
@@ -317,7 +315,7 @@ function ff(){
 function FunctionAct(x){
 	
 	    if (x=="1"){
-		   <% sqlAct1 = "Select * from marketing.activity where activityid ='1'AND phaseid ="+id;
+		   <% sqlAct1 = "Select * from marketing.activity where activityid ='1' AND phaseid ="+id;
 		    rsAct = statement.executeQuery(sqlAct1);
 		    rsAct.next();
 		    actDes1 = rsAct.getString("actdesc");
@@ -326,8 +324,11 @@ function FunctionAct(x){
 			temp1 = rsAct.getString("template");
 			Matrics1 = rsAct.getString("metrics");
 			approval1 = rsAct.getString("actapproval");
+			//	    	actrole.innerHTML = "<%=actrole1%
+
 		    %>	 
-		   alert("hi ftm");  
+			alert(x);
+	   	    alert("hi ftm");  
 			actname.innerHTML = "<%=actname1%>";
 			actdesc.innerHTML = "<%=actDes1%>";
 			temp.innerHTML = "<%=temp1%>";
@@ -335,7 +336,8 @@ function FunctionAct(x){
 			Approval.innerHTML = "<%=approval1%>";
 
 		     } 
-	      if (x=="2"){
+	    else   if (x=="2"){
+	    	  alert(x);
 					   alert("hi srh");  
 
 		  		   <% sqlAct2 = "Select * from marketing.activity where activityid ='2' AND phaseid ="+id;
@@ -356,10 +358,12 @@ function FunctionAct(x){
 
 		   			 }
 	         else  if (x=="3"){
+		    	  alert(x);
+
 				   alert("hi three");  
 
-	  		   <% sqlAct3 = "Select * from marketing.activity where activityid ='3'AND phaseid ="+id;
-			    rsAct = statement.executeQuery(sqlAct2);
+	  		   <% sqlAct3 = "Select * from marketing.activity where activityid ='3' AND phaseid ="+id;
+			    rsAct = statement.executeQuery(sqlAct3);
 			    rsAct.next();
 			    actDes1 = rsAct.getString("actdesc");
 			    actname1 = rsAct.getString("actname");
@@ -376,10 +380,12 @@ function FunctionAct(x){
 
 	   			 } 
 	         else      if (x=="4"){
+		    	  alert(x);
+
 				   alert("hi 4");  
 
-	  		   <% sqlAct4 = "Select * from marketing.activity where activityid ='4'AND phaseid ="+id;
-			    rsAct = statement.executeQuery(sqlAct2);
+	  		   <% sqlAct4 = "Select * from marketing.activity where activityid ='4' AND phaseid ="+id;
+			    rsAct = statement.executeQuery(sqlAct4);
 			    rsAct.next();
 			    actDes1 = rsAct.getString("actdesc");
 			    actname1 = rsAct.getString("actname");
@@ -388,18 +394,21 @@ function FunctionAct(x){
 				Matrics1 = rsAct.getString("metrics");
 				approval1 = rsAct.getString("actapproval");
 			    %>	 
+
 				actname.innerHTML = "<%=actname1%>";
-				actdesc.innerHTML = "<%=actDes1%>";
+				actdesc.innerHTML = "<%=actrole1%>";
 				temp.innerHTML = "<%=temp1%>";
 				Metrics.innerHTML = "<%=Matrics1%>";
 				Approval.innerHTML = "<%=approval1%>";
 
 	   			 } 
 	         else  if (x=="5"){
+		    	  alert(x);
+
 				   alert("hi 5");  
 
-	  		   <% sqlAct5 = "Select * from marketing.activity where activityid ='5'AND phaseid ="+id;
-			    rsAct = statement.executeQuery(sqlAct2);
+	  		   <% sqlAct5 = "Select * from marketing.activity where activityid ='5' AND phaseid ="+id;
+			    rsAct = statement.executeQuery(sqlAct5);
 			    rsAct.next();
 			    actDes1 = rsAct.getString("actdesc");
 			    actname1 = rsAct.getString("actname");
@@ -416,10 +425,12 @@ function FunctionAct(x){
 
 	   			 } 
 	         else  if (x=="6"){
+		    	  alert(x);
+
 				   alert("hi 6");  
 
-	  		   <% sqlAct5 = "Select * from marketing.activity where activityid ='6'AND phaseid ="+id;
-			    rsAct = statement.executeQuery(sqlAct2);
+	  		   <% sqlAct6 = "Select * from marketing.activity where activityid ='6' AND phaseid ="+id;
+			    rsAct = statement.executeQuery(sqlAct6);
 			    rsAct.next();
 			    actDes1 = rsAct.getString("actdesc");
 			    actname1 = rsAct.getString("actname");
@@ -454,7 +465,6 @@ function myFunction1() {
         x4.style.display = "none";
         x5.style.display = "none"; 
         x6.style.display = "none";
-        x7.style.display = "none";
         
     } else {
         x1.style.display = "none";
@@ -463,7 +473,6 @@ function myFunction1() {
         x4.style.display = "none";
         x5.style.display = "none";
         x6.style.display = "none";
-        x7.style.display = "none";
     }
 }
 
@@ -476,7 +485,6 @@ function myFunction2() {
         x4.style.display = "none";
         x5.style.display = "none";
         x6.style.display = "none";
-        x7.style.display = "none";
         
     } else {
         x1.style.display = "none";
@@ -485,7 +493,6 @@ function myFunction2() {
         x4.style.display = "none";
         x5.style.display = "none";
         x6.style.display = "none";
-        x7.style.display = "none";
     }
 }
 
@@ -498,7 +505,6 @@ function myFunction3() {
         x4.style.display = "none";
         x5.style.display = "none";
         x6.style.display = "none";
-        x7.style.display = "none";
         
     } else {
         x1.style.display = "none";
@@ -507,7 +513,6 @@ function myFunction3() {
         x4.style.display = "none";
         x5.style.display = "none";
         x6.style.display = "none";
-        x7.style.display = "none";
     }
 }
 function myFunction4() {
@@ -519,7 +524,6 @@ function myFunction4() {
         x1.style.display = "none";
         x5.style.display = "none";
         x6.style.display = "none";
-        x7.style.display = "none";
         
     } else {
         x1.style.display = "none";
@@ -528,7 +532,6 @@ function myFunction4() {
         x4.style.display = "none";
         x5.style.display = "none";
         x6.style.display = "none";
-        x7.style.display = "none";
     }
 }
 function myFunction5() {
@@ -540,7 +543,6 @@ function myFunction5() {
         x1.style.display = "none";
         x4.style.display = "none";
         x6.style.display = "none";
-        x7.style.display = "none";
         
     } else {
         x1.style.display = "none";
@@ -549,7 +551,6 @@ function myFunction5() {
         x4.style.display = "none";
         x5.style.display = "none";
         x6.style.display = "none";
-        x7.style.display = "none";
     }
 }
 function myFunction6() {
@@ -561,7 +562,6 @@ function myFunction6() {
         x1.style.display = "none";
         x5.style.display = "none";
         x4.style.display = "none";
-        x7.style.display = "none";
         
     } else {
         x1.style.display = "none";
@@ -570,7 +570,6 @@ function myFunction6() {
         x4.style.display = "none";
         x5.style.display = "none";
         x6.style.display = "none";
-        x7.style.display = "none";
     }
 }
     </script>
@@ -582,11 +581,7 @@ function myFunction6() {
 </div>
 </div>
 </div>
-
-
 </div>
-
-
 
 <!--footer-->
             

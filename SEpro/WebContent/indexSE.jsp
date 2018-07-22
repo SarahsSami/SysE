@@ -389,9 +389,9 @@ resultSet = statement.executeQuery(sql1);
   String name = null;
   String des = null;
   logo = resultSet.getString("proLogo");
-name = resultSet.getString("proName");
- des=resultSet.getString("proDes");
-//int id =resultSet.getInt(1);
+  name = resultSet.getString("proName");
+  des=resultSet.getString("proDes");
+  int id =resultSet.getInt(1);
   %>
   
    <div class="column1">
@@ -400,15 +400,17 @@ name = resultSet.getString("proName");
       <h3 style="padding-top:0px"><a href=<%="\" Project.jsp?id="+resultSet.getInt(1)+ "\"" %>><%=name%></a></h3> 
       
       
-      <div class="button-tu"> 
-                  <button  onclick="overview(event)" style="width:auto;"><span style="font-size:13px; cursor:pointer; text-align:center">Overview</span></button>
+      <div class="button-tu">
+                  <button  onclick="overview()" style="width:auto;"><span style="font-size:13px; cursor:pointer; text-align:center">Overview</span></button>
       </div>      
       <div class="Login">
       <div id="id01" class="modal">
       <div class="modal-content animate">
-          <img src="<%=logo%> " style="width:60%; height:60% ">
+          <img src="<%=logo%> " style="padding-top:20px; width:60%; height:60% ">
                 <h1><%=name%></h1>
-          <p style="padding:10px"><b>Description:</b> <%=des%>  </p>
+          <p style="text-align:left; padding:10px"><b>Description:</b> <%=des%>  </p>
+          <p style="text-align:left; padding:10px"><b>Project Phases:</b></p>
+          
                     <img src="images/icon-1.png" style="width:30%; height:30% ">                   
                     <img src="images/icon-2.png" style="width:30%; height:30% ">
                     <img src="images/icon-3.png" style="width:30%; height:30% ">
@@ -423,22 +425,17 @@ name = resultSet.getString("proName");
       
       <script>
 // Get the modal
+
 var modal = document.getElementById('id01');
 
+function overview(){
+	document.getElementById('id01').style.display='block';
+}
 // When the user clicks anywhere outside of the modal, close it
-/*
 window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
-}
-*/
-function overview(event){
-	document.getElementById('id01').style.display='block';
-	
-	   if (event.target == modal) {
-	        modal.style.display = "none";
-	    }
 }
 </script>
 </div>
