@@ -168,7 +168,7 @@ resultSet.next();
   <input type="text" class="form-control"  id="name" name="pname" value=""  placeholder="Project Name" required>
     </div>
     <div class="form-group">
-
+ 
    <label style="float: left;"><b>Project Logo</b></label>
   <input type="file" name="pic" required>  
    </div>

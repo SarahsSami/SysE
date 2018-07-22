@@ -18,7 +18,7 @@
 	<meta name="description" content="" />
 	<meta name="keywords" content=" html5, css3, mobile first, responsive" />
 	<meta name="author" content="ADWA" />
-
+ 
  
 
   <!-- Facebook and Twitter integration -->
