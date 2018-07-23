@@ -24,7 +24,7 @@ asa{background: #38569f;}
 	margin-left:10px;
 	
 }
-.EditInfoStyle input{
+.EditInfoStyle input {
 	display: block;
 	width: 100%;
 	padding: 10px 20px;
@@ -38,11 +38,26 @@ asa{background: #38569f;}
 	color:#89888a;
 	background: rgba(255,255,255,.5);
 }
-
-
+.area textarea {
+	display: block;
+    width: 100%;
+    height: 200px;
+	padding: 10px 20px;
+    box-sizing: border-box;
+    border: 1px solid #888;
+    border-radius: 15px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
+   	color:#89888a;
+   	letter-spacing: 1px;
+   	background: rgba(255,255,255,.5);
+   	
+    
+}
 .EditInfoStyle input[type="submit"]{
 	color: #fff;
-	background: #b0a339;
+	background: #5781ac;
 	font-size: 16px;
 	border: none;
 	cursor: pointer;
@@ -50,9 +65,12 @@ asa{background: #38569f;}
 
 }
 .EditInfoStyle input[type="submit"]:hover {
-		background: #9e9445;
+		background: #5781ac;
 }
 .EditInfoStyle input::placeholder{
+	color:#ceced1;
+}
+.EditInfoStyle textarea::placeholder{
 	color:#ceced1;
 }
 .user {

@@ -4,7 +4,7 @@
 
 
 /* Full-width input fields */
-.Login input[type=text], input[type=password] {
+.Login input[type=text], input[type=password], textarea {
   /*  width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -37,7 +37,6 @@
    /*    margin: 8px 0;
    */
    	margin:10px;
-	outline:none;
 
     border: none;
     cursor: pointer;

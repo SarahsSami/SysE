@@ -1,23 +1,77 @@
-<%@ page language="java" contentType="text/html; charset=windows-1256"
-    pageEncoding="windows-1256"%>
-    
-    
+ 
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="java.io.*,java.util.*,java.sql.*"%>
+<%@ page import="javax.servlet.http.*,javax.servlet.*" %>
+<%@ page import="java.sql.*" %>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
 
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<%@ page import="java.sql.*" %>
-<%ResultSet resultset =null;%>
+<!DOCTYPE html>
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1256">
-<title>SE | Project Resources</title>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Project Resources</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="" />
+	<meta name="keywords" content=" html5, css3, mobile first, responsive" />
+	<meta name="author" content="ADWA" />
+ 
+ 
+
+  <!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+ <link rel="icon" href="images/favicon-96x96.png" type="image/ico"/>
+
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,600,200italic,700' rel='stylesheet' type='text/css'>
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="css/icomoon.css">
+	<!-- Simple Line Icons -->
+	<link rel="stylesheet" href="css/simple-line-icons.css">
+	<!-- Owl Carousel -->
+	<link rel="stylesheet" href="css/owl.carousel.min.css">
+	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+	
+	<link rel="stylesheet"  href="css/Style-2018.css" type="text/css" >
+	<link rel="stylesheet"  href="css/LoginStyle.css" type="text/css" >
+	
+
+	<!-- 
+	Default Theme Style 
+	You can change the style.css (default color purple) to one of these styles
+	
+	1. pink.css
+	2. blue.css
+	3. turquoise.css
+	4. orange.css
+	5. lightblue.css
+	6. brown.css
+	7. green.css
+
+	-->
+	<link rel="stylesheet" href="css/lightblue.css">
+
+	<script src="js/modernizr-2.6.2.min.js"></script>
+
 </head>
+
 <body>
 
 <%
@@ -34,35 +88,97 @@ e.printStackTrace();
 }
 Connection connection = null;
 Statement statement = null;
-ResultSet resultSet = null;
+ResultSet resultset = null;
 try {
 connection = DriverManager.getConnection(
 connectionUrl + dbName, userId, password);
 statement = connection.createStatement();
 String user= ""+session.getAttribute("id");
 String sql = "SELECT * FROM marketing.users where ID ="+user;
-resultSet = statement.executeQuery(sql);
-resultSet.next();
+resultset = statement.executeQuery(sql);
+resultset.next();
 %>
 
+<div id="wrapper">
+
+<!-- Navigation-->
+    <!--      <img src="images/SE.png" style="width:20%; height:20%; "/> -->
+
+	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container"> 
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span> 
+            </button>
+        </div>
+        <div style="margin-left:0px"class="collapse navbar-collapse">
+            <ul  class="nav navbar-nav">         
+            <li><a style="font-size:30px; color:#52678c">System Engineering &nbsp; &nbsp; |</a>  </li>
+            
+                <li><a href="indexSE.jsp" style="margin-left:18px;">Home</a></li>
+                <li><a href="Tutorial.jsp" >Tutorial</a></li>
+             
+                <li> <a href="Logout.jsp">Sign out</a></li>
+
+             </ul>
+             
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <span class="glyphicon glyphicon-user"></span>   
+                        <strong id="login"><%=session.getAttribute("name")%></strong>
+                 <!--     <span class="glyphicon glyphicon-chevron-down"></span> -->
+                        
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+ </div>
+ 		
 
 
 
+ <!-- page content-->
 
 
 
+	<div id="fh5co-press" data-section="Services" style="margin-top:0px; ">
+ 		 <div class="container"  >
+ 		 
+ 		 
+			<div class="row">
+			
+							<div class="col-md-12 section-heading text-center">  
+								<h2 class="single-animate animate-press-1">Add Project Resources</h2>
+			
+
+
+<!--view projects example -->
+<!-- Portfolio Gallery Grid -->
+<div class="main1" style="    text-align:center; margin-left:320px; margin-top:70px">
+
+<div class="row1"style="">
+
+
+                            <div class="EditInfoStyle" style="	width:500px">
+                            
+                            
+       <div class="form-area">
 <form action="addresServlet" method="post"> 
 
 
 
-
+<h3 style="float: left;" >‣  Select project:</h3>
 
 <%
     try{
 Class.forName("com.mysql.jdbc.Driver").newInstance();
        resultset =statement.executeQuery("select * from project") ;
 %> 
- <select name="projects">  
+ <select  class="form-control" name="projects">  
       <%
       
       resultset.first();%>
@@ -74,7 +190,7 @@ Class.forName("com.mysql.jdbc.Driver").newInstance();
       <option> <%=  resultset.getString(2) %></option>
       <%} %>
       
-      </select>
+      </select><br>
       
   <%       } 
         catch(Exception e)
@@ -87,12 +203,6 @@ Class.forName("com.mysql.jdbc.Driver").newInstance();
 
 
 
-<table>
-
-
-
- Project resources:
-<br>
 
 
      
@@ -102,10 +212,9 @@ int[] array =new int[10];
 for(int i=0;i<10;i++){
 if(i==0){
 %>
-<tr>
-System engineer:
 
 
+<h3 style="float: left;">Select System engineer:</h3>
 
 <%
     try{
@@ -114,7 +223,7 @@ Class.forName("com.mysql.jdbc.Driver").newInstance();
 %> 
 
 
-      <select name="SE">  
+      <select class="form-control"  name="SE">  
       <%
       
       resultset.first();%>
@@ -142,9 +251,7 @@ Class.forName("com.mysql.jdbc.Driver").newInstance();
 
 <% } else if(i==1){
 %>
-Customer:   
-
-
+<h3 style="float: left; ">Select Customer:</h3>
 <%
     try{
 Class.forName("com.mysql.jdbc.Driver").newInstance();
@@ -152,7 +259,7 @@ Class.forName("com.mysql.jdbc.Driver").newInstance();
 %> 
 
 
-      <select name="cus">  
+      <select class="form-control"  name="cus">  
       <%
       
       resultset.first();%>
@@ -178,8 +285,8 @@ Class.forName("com.mysql.jdbc.Driver").newInstance();
 
 
 <% } else if(i==2){ %>
-Configuration manager:
 
+<h3 style="float: left;">Select Configuration manager:</h3>
 
 
 
@@ -190,7 +297,7 @@ Class.forName("com.mysql.jdbc.Driver").newInstance();
 %> 
 
 
-      <select name="cm">  
+      <select class="form-control"  name="cm">  
       <%
       
       resultset.first();%>
@@ -216,8 +323,9 @@ Class.forName("com.mysql.jdbc.Driver").newInstance();
 
 
 <% } else if(i==3){ %>
-Product manager:
 
+
+<h3 style="float: left;">Select Product manager:</h3>
 
 
 <%
@@ -227,7 +335,7 @@ Class.forName("com.mysql.jdbc.Driver").newInstance();
 %> 
 
 
-      <select name="productM">  
+      <select class="form-control"  name="productM">  
       <%
       
       resultset.first();%>
@@ -253,8 +361,8 @@ Class.forName("com.mysql.jdbc.Driver").newInstance();
 
 
 <% } else if(i==4){ %>
-Program manager:
 
+<h3 style="float: left;">Select Program manager:</h3>
 
 
 <%
@@ -264,7 +372,7 @@ Class.forName("com.mysql.jdbc.Driver").newInstance();
 %> 
 
 
-      <select name="programM">  
+      <select class="form-control"  name="programM">  
       <%
       
       resultset.first();%>
@@ -291,7 +399,9 @@ Class.forName("com.mysql.jdbc.Driver").newInstance();
 
 
 <% } else if(i==5){ %>
-System tester:
+
+
+<h3 style="float: left;">Select Program manager:</h3>
 
 
 
@@ -303,7 +413,7 @@ Class.forName("com.mysql.jdbc.Driver").newInstance();
 %> 
 
 
-      <select name="tester">  
+      <select class="form-control"  name="tester">  
       <%
       
       resultset.first();%>
@@ -325,9 +435,9 @@ Class.forName("com.mysql.jdbc.Driver").newInstance();
 %>
 
 
-
 <% } else if(i==6){ %>
-System designer:
+
+<h3 style="float: left;">Select System designer:</h3>
 
 
 
@@ -338,7 +448,7 @@ Class.forName("com.mysql.jdbc.Driver").newInstance();
 %> 
 
 
-      <select name="designer">  
+      <select class="form-control"  name="designer">  
       <%
       
       resultset.first();%>
@@ -364,7 +474,8 @@ Class.forName("com.mysql.jdbc.Driver").newInstance();
 
 
 <% } else if(i==7){ %>
-System quality manager:
+
+<h3 style="float: left;">Select System quality manager:</h3>
 
 
 
@@ -376,7 +487,7 @@ Class.forName("com.mysql.jdbc.Driver").newInstance();
 %> 
 
 
-      <select name="quality">  
+      <select class="form-control"  name="quality">  
       <%
       
       resultset.first();%>
@@ -398,7 +509,8 @@ Class.forName("com.mysql.jdbc.Driver").newInstance();
 %>
 
 <% } else if(i==8){ %>
-System implementer:
+
+<h3 style="float: left;">Select System implementer:</h3>
 
 
 
@@ -409,8 +521,7 @@ Class.forName("com.mysql.jdbc.Driver").newInstance();
        resultset =statement.executeQuery("select * from users where position = 'imp'") ;
 %> 
 
-
-      <select name="imp">  
+<select class="form-control" name="imp">  
       <%
       
       resultset.first();%>
@@ -432,7 +543,8 @@ Class.forName("com.mysql.jdbc.Driver").newInstance();
 %>
 
 <% } else if(i==9){ %>
-Technical leader:
+
+<h3 style="float: left;" >Select Technical leader:</h3>
 
 
 
@@ -445,7 +557,7 @@ Class.forName("com.mysql.jdbc.Driver").newInstance();
 %> 
 
 
-      <select name="leader">  
+      <select class="form-control" name="leader">  
       <%
       
       resultset.first();%>
@@ -467,33 +579,43 @@ Class.forName("com.mysql.jdbc.Driver").newInstance();
 %>
 
 <%} %>
-<br></br>
 
-
-
-
-
-
-<br>
-
-</tr>
-<br>
-
-<br></br>
-
-    
-
-
-</table>
 
 <%}}
 catch (Exception e) {
 e.printStackTrace();
 } %>
+<br><br>
 
-  <input type="submit" value="Submit">
+  <input style="margin-bottom:0px" type="submit" value="Submit">
 </form> 
+</div></div></div></div></div></div></div></div>
 
+<!--footer-->
+            
+	<footer id="footer" role="contentinfo">
+		<div class="container">
+			<div class="row row-bottom-padded-sm">
+				<div class="col-md-12">
+					<p class="copyright text-center">&copy;  <a href="index.html">KACST ECP 2017</a>. All Rights Reserved. <br> </p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<ul class="social social-circle">
+						<li><a href="#"><i class="icon-twitter"></i></a></li>
+						<li><a href="#"><i class="icon-facebook"></i></a></li>
+						<li><a href="#"><i class="icon-youtube"></i></a></li>
+						<li><a href="#"><i class="icon-pinterest"></i></a></li>
+						<li><a href="#"><i class="icon-linkedin"></i></a></li>
+						<li><a href="#"><i class="icon-instagram"></i></a></li>
+						<li><a href="#"><i class="icon-dribbble"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+ 
+	</footer>
 
 
 </body>

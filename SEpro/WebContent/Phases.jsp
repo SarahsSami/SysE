@@ -37,7 +37,7 @@
 	
 
 	
-	
+	 
 	
 
 
@@ -103,6 +103,7 @@ String connectionUrl = "jdbc:mysql://localhost:3306/";
 String dbName = "marketing";
 String userId = "root";
 String password = "";
+int phid1=0,phid2=0,phid3=0,phid4=0,phid5=0,phid6=0,phid7=0;
 try {
 Class.forName(driverName);
 } catch (ClassNotFoundException e) {
@@ -110,7 +111,7 @@ e.printStackTrace();
 }
 Connection connection = null;
 Statement statement = null;
-ResultSet resultSet = null, resultSet2 = null;
+ResultSet resultSet = null, resultSet2 = null , resultSet3 = null;
 try {
 connection = DriverManager.getConnection(
 connectionUrl + dbName, userId, password);
@@ -119,12 +120,10 @@ String user= ""+session.getAttribute("id");
 String sql = "SELECT * FROM marketing.users where ID ="+user;
 resultSet = statement.executeQuery(sql);
 resultSet.next();
+
 %>
+
 <div id="wrapper">
-
-
-<!-- Navigation-->
-    <!--      <img src="images/SE.png" style="width:20%; height:20%; "/> -->
 
 
 	<div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -140,12 +139,12 @@ resultSet.next();
         
             <ul  class="nav navbar-nav">         
                         <li><a style="font-size:30px; color:#52678c"><bm>System Engineering &nbsp; &nbsp;|</b></a>  </li>
-            
+             
                 <li><a href="indexSE.jsp">Home</a></li>
-                <li><a href="Tutorial.jsp" >Tutorial</a></li>
+                   <li><a href="Tutorial.jsp" >Tutorial</a></li>
                 
               <li>      <% if(resultSet.getString("position").equals("pm")) { %>
-     <a href="create.jsp">Create Project</a> <%}%></li>
+     <a href="createProject.jsp">Create Project</a> <%}%></li>
                           <li> <a href="Logout.jsp">Sign out</a></li>
 
              </ul>
@@ -161,8 +160,8 @@ resultSet.next();
             </ul>
         </div>
     </div>
- </div> 
- 		
+ </div>
+   	
  <!-- page content-->
  	<div id="fh5co-press" >
  		 <div class="container"  >
@@ -171,22 +170,32 @@ resultSet.next();
 							<div class="col-md-12 section-heading text-center">  
 			
 <!--view projects example -->
-<div class="main1" style="    text-align:center; margin-left:100px; margin-top:70px">
+
+<!-- Phases buttons -->
+   <div class="bb" style="margin-top:20px; margin-left:180px; ">
+  <button onclick="myFunction1()" id="1" class="btn btn-success btn-arrow-right" style="text-align:center; width:auto">User requirement</button>
+  <button onclick="myFunction2()"id="2" class="btn btn-success btn-arrow-right">System Requirement</button>
+  <button onclick="myFunction3()" id="3" class="btn btn-success btn-arrow-right">Architectural design</button><br>
+  <button onclick="myFunction4()" id="4" class="btn btn-primary btn-arrow-right">Implementation</button>
+  <button onclick="myFunction5()" id="5" class="btn btn-defulte btn-arrow-right">Integration System</button>
+  <button onclick="myFunction6()" id="6" class="btn btn-defulte btn-arrow-right">Testing</button>
+  <button onclick="myFunction7()"id="7" class="btn btn-defulte btn-arrow-right">Deployment</button>
+  </div>
+<!-- End Phases buttons -->
+
+<div class="main1" style=" text-align:center; margin-left:100px; margin-top:120px">
 <div id="box" >
 
-	<%
-	
+	<%	
 	String  id= request.getParameter("id");
 	String id2= "'"+id+"'";
 	//int id = Integer.parseInteger(n);%>
-
 <%
 try {
 
 connection = DriverManager.getConnection(
 connectionUrl + dbName, userId, password);
 statement = connection.createStatement();
-
 
 String user1= ""+session.getAttribute("id");
 String sql1 = "SELECT * FROM marketing.project where idp = "+id;
@@ -198,41 +207,101 @@ String name= "", des="", logo="";
 logo = resultSet2.getString("proLogo");
 name = resultSet2.getString("proName");
 des=resultSet2.getString("proDes");
-%> 
-
-   <div class="img-wrap" >  <img style="width:100%; height:100% " src="<%=logo %>"/>   </div>
-  
-<!--  -->
-
-
-
-<h2 style="font-size:30px; "><%=name %></h2>
-
-<br/>
- <div  class="img-wrapm" style="width:60%; height:60%; text-align:center"> 
- <img   id="img1" src="images/Phase1.png"  style="display:none; width:150%; height:150%; padding-left:100px" />
- <img  id="img2"  src="images/Phase2.png"  style="display:none; width:150%; height:150%; padding-left:100px" />
- <img  id="img3"  src="images/Phase3.png"  style="display:none; width:150%; height:150%; padding-left:100px" />
- <img  id="img4"  src="images/Phase4.png"  style="display:none; width:150%; height:150%; padding-left:100px" />
- <img  id="img5"  src="images/Phase5.png"  style="display:none; width:150%; height:150%; padding-left:100px" />
- <img id="img6"   src="images/Phase6.png"  style="display:none; width:150%; height:150%; padding-left:100px" />
- <img id="img7"   src="images/Phase7.png"  style="display:none; width:150%; height:150%; padding-left:100px" />
-  
+int pid = resultSet2.getInt(1);
+%>
  
-  </div> 
+ <div class="img-wrap" ><img style="width:100%; height:100%;" src="<%=logo %>"/></div>
+ <h2 style="font-size:30px; "><%=name %></h2><br>
+ <div  class="img-wrapm" style="width:60%; height:60%; text-align:center"> 
+ <div  id="img1"  style="display:none" >
+ <h3 style="font-family: sans-serif; color:#737373; margin-left:70px">‣ User requirement Activity diagram:</h3>
+ <img  src="images/Phase1.png" style=" border:2px solid #fff; width:140%; height:140%; margin-left:70px" />
+ <div>
+<%
+String sql2 = "SELECT * FROM marketing.phase";
+resultSet3 = statement.executeQuery(sql2);
+resultSet3.next();
+phid1= resultSet3.getInt(1);
+%>
 
-    <div class="bb" style="margin-top:30px">
-  <!--  <div  id="PhaseId"  onChange="selectChange(this.value)"  >-->
-  <button onclick="myFunction1()" value="1" class="btn btn-success btn-arrow-right" style="text-align:center; width:auto">User requirement</button>
-  <button onclick="myFunction2()"id="2" class="btn btn-success btn-arrow-right">System requirement</button>
-  <a onclick="myFunction3()" href="activities.jsp" id="3" class="btn btn-primary btn-arrow-right">Architectural design </a>
-  <button onclick="myFunction4()" id="4" class="btn btn-defulte btn-arrow-right">Implementation</button>
-  <button onclick="myFunction5()" id="5" class="btn btn-defulte btn-arrow-right">Integration system</button>
-    <button onclick="myFunction6()" id="6" class="btn btn-defulte btn-arrow-right">Testing</button>
-    <button onclick="myFunction7()"id="7" class="btn btn-defulte btn-arrow-right">Deployment</button>
- <!-- </div>-->
-
+ <div class="Login"><a style="margin-left:320px" href="activities.jsp?id=<%=pid%>&phaseid=<%=phid1%>"><button style="text-align:center; width:auto">View activities</button></a></div>
 </div>
+ </div>
+ <!-- *********** -->
+ <div  id="img2"  style="display:none" >
+ <h3 style="font-family: sans-serif; color:#737373; margin-left:70px">‣ System requirement Activity diagram:</h3>
+ <img  src="images/Phase2.png" style=" border:2px solid #fff; width:140%; height:140%; margin-left:70px"/>
+  <div>
+  <% 
+resultSet3.next();
+phid2= resultSet3.getInt(1);
+%>
+ <div class="Login"><a style="margin-left:320px" href="activities.jsp?id=<%=pid%>&phaseid=<%=phid2%>"><button style="text-align:center; width:auto">View activities</button></a></div>
+</div>
+ </div> 
+ <!-- *********** -->
+ <div  id="img3"  style="display:none" >
+ <h3 style="font-family: sans-serif; color:#737373; margin-left:70px">‣ Architectural design Activity diagram:</h3>
+ <img  src="images/Phase3.png" style=" border:2px solid #fff; width:140%; height:140%; margin-left:70px" />
+  <div>
+  <% 
+resultSet3.next();
+phid3= resultSet3.getInt(1);
+%>
+ <div class="Login"><a style="margin-left:320px" href="activities.jsp?id=<%=pid%>&phaseid=<%=phid3%>"><button style="text-align:center; width:auto">View activities</button></a></div>
+</div>
+ </div> 
+ <!-- *********** -->
+ <div  id="img4"  style="display:none" >
+ <h3 style="font-family: sans-serif; color:#737373; margin-left:70px">‣ Implementation Activity diagram:</h3>
+ <img  src="images/Phase4.png" style=" border:2px solid #fff; width:140%; height:140%; margin-left:70px" />
+  <div>
+  <% 
+resultSet3.next();
+phid4= resultSet3.getInt(1);
+%>
+ <div class="Login"><a style="margin-left:320px" href="activities.jsp?id=<%=pid%>&phaseid=<%=phid4%>"><button style="text-align:center; width:auto">View activities</button></a></div>
+</div>
+ </div>
+ <!-- *********** -->
+ <div  id="img5"  style="display:none" >
+ <h3 style="font-family: sans-serif; color:#737373; margin-left:70px">‣ Integration system Activity diagram:</h3>
+ <img  src="images/Phase5.png" style=" border:2px solid #fff; width:140%; height:140%; margin-left:70px" />
+  <div>
+  <% 
+resultSet3.next();
+phid5= resultSet3.getInt(1);
+%>
+ <div class="Login"><a style="margin-left:320px" href="activities.jsp?id=<%=pid%>&phaseid=<%=phid5%>"><button style="text-align:center; width:auto">View activities</button></a></div>
+</div>
+ </div>
+ <!-- *********** -->
+ <div  id="img6"  style="display:none" >
+ <h3 style="font-family: sans-serif; color:#737373; margin-left:70px">‣ Testing Activity diagram:</h3>
+ <img  src="images/Phase6.png" style=" border:2px solid #fff; width:140%; height:140%; margin-left:70px" />
+  <div>
+  <% 
+resultSet3.next();
+phid6= resultSet3.getInt(1);
+%>
+ <div class="Login"><a style="margin-left:320px" href="activities.jsp?id=<%=pid%>&phaseid=<%=phid6%>"><button style="text-align:center; width:auto">View activities</button></a></div>
+</div>
+ </div>
+ <!-- *********** -->
+ <div  id="img7"  style="display:none" >
+ <h3 style="font-family: sans-serif; color:#737373; margin-left:70px">‣ Deployment Activity diagram:</h3>
+ <img  src="images/Phase7.png" style=" border:2px solid #fff; width:140%; height:140%; margin-left:70px" />
+  <div>
+  <% 
+resultSet3.next();
+phid7= resultSet3.getInt(1);
+%>
+ <div class="Login"><a style="margin-left:320px" href="activities.jsp?id=<%=pid%>&phaseid=<%=phid7%>"><button style="text-align:center; width:auto">View activities</button></a></div>
+</div>
+</div>  
+</div> 
+
+
 
 <script>
 var x1 = document.getElementById("img1");
@@ -250,7 +319,7 @@ function myFunction1() {
         x2.style.display = "none";
         x3.style.display = "none";
         x4.style.display = "none";
-        x5.style.display = "none";
+        x5.style.display = "none"; 
         x6.style.display = "none";
         x7.style.display = "none";
         
@@ -431,22 +500,14 @@ function selectChange(val) {
 </script>
 </div>  
 </div> 
- 
- 
- 
- 
- 
-
-
-
-
 
 </div></div></div></div>
+
+
 <%}
 
 catch (Exception e) {
-e.printStackTrace();
-} %>
+	e.printStackTrace();} %>
 <!--footer-->
             
 	<footer id="footer" role="contentinfo">
@@ -472,13 +533,10 @@ e.printStackTrace();
 		</div>
 	</footer>
 
-
-
 </div><!--wrapper div-->
 
  <%}
 catch (Exception e) {
-e.printStackTrace();
-} %>
+	e.printStackTrace();} %>
 </body>
 </html>
