@@ -165,10 +165,28 @@ resultSet.next();
   research centers in accordance with the requirements of the development of the Kingdom.</p>
 </div>
 
+
+
+
+
+ <form action="FileUploadHandler" enctype="multipart/form-data" method="post">
 <div  class="button-tu" style=" margin-right:90px;">
-  <input type="button" id="upload" value="Upload"/>
- <input type="button" id="download" value="Download"/>
+
+<input id="upload" type="file" name="file2" /><br>
+<input type="submit" value="upload" />
+<button > <a href="DownloadServlet" > Download</a> </button>
 <input type="button" id="approve" value="Approve"  />
+
+ </form> 
+</div>
+
+
+<!-- 
+  <input type="button" id="upload" value="Upload"/>
+ <input type="button" id="download" value="Download"/> -->
+
+
+
  
 <script type="text/javascript">
 

@@ -1,19 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
   <display-name>SEpro</display-name>
+  
+    <servlet>
+    <servlet-name>DownloadServlet</servlet-name>
+    <servlet-class>jdbc.DownloadServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>FileUploadHandler</servlet-name>
+    <servlet-class>jdbc.FileUploadHandler</servlet-class>
+  </servlet>
   <servlet>
     <servlet-name>cre</servlet-name>
     <servlet-class>jdbc.createPro</servlet-class>
   </servlet>
-    <servlet>
-      <servlet-name>resources</servlet-name>
+  <servlet>
+    <servlet-name>resources</servlet-name>
     <servlet-class>jdbc.addResources</servlet-class>
-      </servlet>
+  </servlet>
   <servlet-mapping>
     <servlet-name>cre</servlet-name>
     <url-pattern>/creServlet</url-pattern>
   </servlet-mapping>
-   <servlet-mapping>
+  <servlet-mapping>
     <servlet-name>resources</servlet-name>
-    <url-pattern>/addresServlet</url-pattern> </servlet-mapping>
+    <url-pattern>/addresServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FileUploadHandler</servlet-name>
+    <url-pattern>/FileUploadHandler/*</url-pattern>
+  </servlet-mapping>
+   <servlet-mapping>
+    <servlet-name>DownloadServlet</servlet-name>
+    <url-pattern>/DownloadServlet/*</url-pattern>
+  </servlet-mapping>
 </web-app>
